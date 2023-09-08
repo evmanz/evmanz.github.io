@@ -6,7 +6,7 @@ permalink: /about/
 
 My name is Evgeny Manzhosov. 
 
-Currently, I am working on my Ph.D. under the supervision of prof. Simha Sethumadhavan at Columbia University. 
+Currently, I am working on my Ph.D. under the supervision of prof. [Simha Sethumadhavan](http://www.cs.columbia.edu/~simha/) at Columbia University. 
 
 Before joining prof. Sethumadhavan's Lab, I finished my MSc degree at the Department of Electrical Engineering at Columbia University with an Award of Excellence. 
 I received B.Sc. in Physics and B.Sc. in Electrical Engineering from Technion - Israel Institute of Technology in 2014. 
