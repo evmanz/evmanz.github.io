@@ -47,6 +47,11 @@ p {
     font-size: rem(22);
     font-weight: 300;
   }
+  &.smaller-text {
+    font-size: 0.8em; /* Adjust this value as needed */
+    margin-top: -10px; /* Optional: to reduce the space between the two lines */
+}
+
 }
 
 a {
