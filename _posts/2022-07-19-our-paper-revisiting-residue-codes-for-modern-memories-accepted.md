@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "Our paper was accepted to MICRO’55"
+title: "My first paper was accepted to MICRO’55!"
 comments: true
 description: "Announcement about our paper acceptance"
 keywords: "paper, acceptance, MICRO’55"
 ---
 
-# My first paper was accepted to MICRO'55!
 This paper is my first work on co-designing for security and reliability.
 However, the benefit we never mention in the paper itself is its great
 pedagogical value. Any college book on computer architecture teaches
-error-correcting codes using Hamming or BCH codes as an example. MUSE is more
-intuitive to understand than Hamming code due to its integer arithmetic and the
-simple idea of the one-to-one mapping of residues to errors.
+error-correcting codes using Hamming or BCH codes as an example. Unlike those
+codes, which rely on complex finite field arithmetic, MUSE is more intuitive to
+understand because it uses simple integer arithmetic and the simple idea of the
+one-to-one mapping of residues to errors, making a great code to teach in class.
 
 # Abstract
 > Residue codes have been traditionally used for compute error correction rather
