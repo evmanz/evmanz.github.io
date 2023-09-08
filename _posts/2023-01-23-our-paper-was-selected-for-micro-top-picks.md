@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My Micro'55 was selected as MICRO Top Picks for 2022!"
+title: "My Micro'55 paper was selected as MICRO Top Picks for 2022!"
 comments: true
 description: "Announcement about our paper acceptance"
 keywords: "paper, acceptance, MICRO’55"
