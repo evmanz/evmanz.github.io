@@ -7,7 +7,7 @@ keywords: "fellowship, acceptance, QIF"
 ---
 
 My colleague Mohamed Tarek and I won the Qualcomm Innovation Fellowship with a
-proposal titles "Practical Software Security on Heterogeneous System on Chips."
+proposal titled "Practical Software Security on Heterogeneous System on Chips."
 
 Only 13 teams out of 188 were selected.  
 

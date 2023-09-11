@@ -7,3 +7,4 @@ keywords: "candidacy, columbia, mphil"
 ---
 
 I passed my Ph.D. candidacy exam! 
+The syllabus of the exam is available [here (PDF)](https://evmanz.github.io/assets/candidacy.pdf)
