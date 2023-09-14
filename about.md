@@ -35,4 +35,7 @@ year later, in 2017, I started my studies at Columbia.
 During my studies at the Technion, I became interested in analog photography,
 which I have been doing since then. 
 
+This shot I captured with my Fuji TX-1 and 45 mm lens using expired Kodak TMAX
+400 film pushed to 1600.
+
 ![My Photo](/assets/images/xpan_tmax400_as_1600_0008.jpg)
