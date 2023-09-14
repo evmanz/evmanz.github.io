@@ -14,9 +14,7 @@ solutions, afterward drifting towards the intersection of security and
 reliability of systems. My current work is focused on the intersection of
 security and reliability for general-purpose and specialized computing (e.g.,
 ML, ML with Homomorphic Encryption). Other than that, I am interested in
-compilers, program analysis, and hardware/software co-design. Unfortunately,
-there are way more interesting things to look at than I can realistically handle
-in a reasonable amount of time, so I have to pick. :)
+compilers, program analysis, and hardware/software co-design. 
 
 Before joining Prof. Sethumadhavan's Lab, I finished my M.Sc. at the Department
 of Electrical Engineering at Columbia University with an Award of Excellence.
