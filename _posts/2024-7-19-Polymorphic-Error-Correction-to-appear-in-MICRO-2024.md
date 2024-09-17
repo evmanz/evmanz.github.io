@@ -12,15 +12,10 @@ The paper's main idea is to co-design for security and reliability. We assume
 that the baseline system already comes with MACs for data integrity (e.g., Intel
 TDX) and standard level of ECC, i.e., Intel's SDDC. 
 
-We design a new scheme with iterative error correction (like Intel's SDDC) that
-relies on MAC verification to validate the correction outcome. To improve error
-coverage, we design a novel ECC scheme that can reinterpret the same set of ECC
-check bits for any fault model. In other words, you encode the check bits once,
-like with any other error correction method, but the decoding can be done for a
-variety of fault models: ChipKill, Single Symbol Correction, Double-bit error,
-Tripple-bit Error, Double Bounded Fault, etc. Thus, unlike conventional error
-correction schemes with limited fault model support, Polymorphic ECC corrects
-more errors. We evaluated our scheme on a series of DDR4-based Rowhammer
-patterns and found that Polymorphic ECC corrects more patterns than other
-state-of-the-art ECC schemes. 
+
+
+**Abstract** -- In this paper, we propose a new memory error correction scheme, Polymorphic ECC, based on a novel idea of *redundancy polymorphism* for error correction. With redundancy polymorphism, we can use the check bits, i.e., parity bits in traditional ECC, to correct errors from different fault models. For example, the error correction procedure will use the same redundancy value for single-bit errors, double-bit errors, ChipKill, and others. As a result, Polymorphic ECC corrects more errors than traditional codes, which typically target a single fault model or require multiple redundancies for multi-fault model support, leading to higher storage overheads. Our construction is very compact, allowing us to embed an *inlined* cryptographic message authentication code (MAC) with each cacheline, ensuring data integrity and near 100% error detection without needing any extra storage. The MAC, further permits iterative correction among the many supported fault models. In the paper, we show that the novel combination of redundancy polymorphism with iterative correction, corrects errors due to fault models not covered by traditional codes and guarantees data integrity with up to 60-bit MACs while using 64-byte cachelines and standard 40-bit DDR5 memory channels.
+
+
+
 
