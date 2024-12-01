@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I am going to Micrsoft for an internship!"
+title: "I am going to Microsoft for an internship!"
 comments: true
 description: "Announcement about internship"
 keywords: "internship, acceptance, microsoft"
