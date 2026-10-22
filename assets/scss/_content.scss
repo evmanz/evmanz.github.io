@@ -1,0 +1,93 @@
+// Shared content typography. The navbar retains the theme's original scale.
+.intro .container,
+.post-list .container,
+.page-content,
+.post-header,
+.post-content {
+  color: $content-color;
+  font-size: $content-font-size;
+  line-height: $content-line-height;
+}
+
+.intro .lead {
+  font-size: $content-title-size;
+  font-weight: 300;
+}
+
+.page-title,
+.post-title {
+  color: $content-color;
+  font-size: $content-title-size;
+  font-weight: 400;
+  line-height: $content-heading-line-height;
+  overflow-wrap: anywhere;
+}
+
+.page-title { margin: 0 0 1.25rem; }
+.post-title { margin: 0; }
+.post-header { margin-bottom: 1.5rem; }
+
+.post-meta {
+  display: inline-block;
+  color: $metadata-color;
+  font-size: $metadata-font-size;
+  margin: 0 0 .5rem;
+}
+
+.page-content,
+.post-content {
+  p { margin-bottom: $content-paragraph-spacing; }
+
+  h1,
+  h2 {
+    font-size: $content-heading-size;
+    line-height: $content-heading-line-height;
+    margin: 1.5rem 0 .75rem;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: $content-subheading-size;
+    line-height: $content-heading-line-height;
+    margin: 1.25rem 0 .75rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.intro a,
+.page-content a,
+.post-content a {
+  color: $content-color;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  overflow-wrap: anywhere;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $black-color;
+  }
+}
+
+.page-content img {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+.post-content blockquote {
+  color: $content-color;
+  font-size: inherit;
+  line-height: inherit;
+  margin: $content-paragraph-spacing 0;
+  padding: .25rem 0 .25rem 1rem;
+  border-left: 2px solid #ddd;
+  background: transparent;
+
+  p:last-child { margin-bottom: 0; }
+}

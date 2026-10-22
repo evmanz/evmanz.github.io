@@ -6,8 +6,8 @@ permalink: /about/
 
 My name is Evgeny Manzhosov. 
 
-Currently, I am working on my Ph.D. under the supervision of Professor [Simha
-Sethumadhavan](http://www.cs.columbia.edu/~simha/) at Columbia University. 
+I earned my Ph.D. from Columbia University in May 2025, advised by Professor
+[Simha Sethumadhavan](http://www.cs.columbia.edu/~simha/).
 
 At the beginning of my Ph.D., I worked on memory safety and pointer integrity
 solutions, afterward drifting towards the intersection of security and

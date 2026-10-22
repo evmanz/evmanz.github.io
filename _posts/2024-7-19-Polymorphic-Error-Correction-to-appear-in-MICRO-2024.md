@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "My paper ''Polymorphic Error Correction'' was accepted to MICRO-2024!"
+title: "My paper \"Polymorphic Error Correction\" was accepted to MICRO-2024!"
 comments: true
 description: "Dissemination of research ideas"
 keywords: "paper, MICRO’57"
 ---
 
-My paper titled ''Polymorphic Error Correction'' was accepted to MICRO-2024. 
+My paper titled "Polymorphic Error Correction" was accepted to MICRO-2024.
 
 The paper's main idea is to co-design for security and reliability. We assume
 that the baseline system already comes with MACs for data integrity (e.g., Intel

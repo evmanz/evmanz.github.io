@@ -1,0 +1,79 @@
+// Matching columns keep introduction text and news messages aligned.
+.intro .container,
+.post-list .container {
+  --year-column: 3rem;
+  --date-column: 3.5rem;
+  --column-gap: 1rem;
+  display: grid;
+  grid-template-columns: var(--year-column) var(--date-column) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  max-width: $homepage-width;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.intro .container { padding-bottom: 0; }
+.intro .container > p { grid-column: 3; }
+
+.news-year {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: var(--year-column) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  align-items: baseline;
+  margin-bottom: 1.5em;
+}
+
+.news-year-label {
+  grid-column: 1;
+  margin: 0;
+  color: $year-color;
+  font-size: $year-font-size;
+  line-height: $content-line-height;
+}
+
+.news-entries {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.news-entry {
+  display: grid;
+  grid-template-columns: var(--date-column) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  align-items: baseline;
+}
+
+.news-entry + .news-entry { margin-top: .65em; }
+
+.news-date {
+  color: $metadata-color;
+  font-size: $metadata-font-size;
+  white-space: nowrap;
+}
+
+.news-entry .post-link {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: $content-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $black-color;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro .container,
+  .post-list .container {
+    --year-column: 2.5rem;
+    --date-column: 3rem;
+    --column-gap: .65rem;
+  }
+
+  .news-entry + .news-entry { margin-top: 1em; }
+}
