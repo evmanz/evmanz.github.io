@@ -27,6 +27,16 @@
 .post-title { margin: 0; }
 .post-header { margin-bottom: 1.5rem; }
 
+// Long-form text keeps its reading width inside the wider page frame.
+// Pages with `wide: true` in their front matter (e.g. Literature Watch) use the full frame.
+.post-header,
+.post-content,
+.page-content {
+  max-width: $prose-width;
+}
+
+.page-content--wide { max-width: none; }
+
 .post-meta {
   display: inline-block;
   color: $metadata-color;

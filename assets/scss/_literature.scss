@@ -1,0 +1,178 @@
+// Literature Watch (/literature/), rendered from _data/papers.json.
+// Ledger layout: venue and category labels on the left, paper on the right.
+// Greys only; every text colour is at least 4.5:1 on white.
+
+$lw-ink: $dark-gray-color;  // #333, 12.6:1
+$lw-muted: $year-color;     // #666, 5.7:1 (the theme's #777 is 4.48:1, below AA for small text)
+$lw-line: #e5e5e5;          // separators between papers
+$lw-fill: #ececec;          // light label fill
+$lw-outline: #999;          // outline label border
+$lw-side-width: 8.5rem;
+$lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− Abstract"
+
+.lw {
+  .lw-intro {
+    color: $lw-muted;
+    margin-bottom: 1rem;
+  }
+
+  // Category key under the intro.
+  .lw-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+    color: $lw-muted;
+    font-size: $metadata-font-size;
+
+    li {
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+    }
+  }
+
+  .lw-year { margin-top: 2.5rem; }
+
+  .lw-year-label {
+    color: $lw-ink;
+    font-size: $year-font-size;
+    font-weight: 700;
+    letter-spacing: .08em;
+    line-height: $content-line-height;
+    margin: 0;
+    padding-bottom: .35rem;
+    border-bottom: 2px solid $lw-ink;
+  }
+
+  .lw-item {
+    display: grid;
+    grid-template-columns: $lw-side-width minmax(0, 1fr);
+    column-gap: 1.25rem;
+    padding: 1.1rem 0 1rem;
+    border-bottom: 1px solid $lw-line;
+  }
+
+  .lw-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    padding-top: .15rem;
+    font-size: .75rem;
+  }
+
+  .lw-venue {
+    color: $lw-ink;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+
+  .lw-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+    margin: 0;  // the theme's base list margin (1.2em left, 1rem bottom) would indent the labels
+    padding: 0;
+    list-style: none;
+  }
+
+  .lw-tag {
+    display: inline-block;
+    font-size: .75rem;
+    line-height: 1.5;
+    padding: 0 .45em;
+    border: 1px solid transparent;
+    border-radius: 2px;
+  }
+
+  // Each category has its own grey treatment.
+  .lw-tag--hardware { background: $lw-ink; color: $white-color; }  // solid
+  .lw-tag--cluster  { background: $lw-fill; color: $lw-ink; }      // light fill
+  .lw-tag--workload { border-color: $lw-outline; color: #555; }    // outline, 7.5:1
+
+  .lw-main { min-width: 0; }
+
+  .lw-title {
+    color: $lw-ink;
+    font-size: $content-subheading-size;
+    font-weight: 400;
+    line-height: $content-heading-line-height;
+    margin: 0 0 .3rem;
+    overflow-wrap: anywhere;
+
+    a {
+      color: $lw-ink;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: $black-color;
+        text-decoration: underline;
+        text-underline-offset: .2em;
+      }
+    }
+  }
+
+  // Byline: authors on the left; the abstract toggle is a separate element
+  // pinned to the right end of the same line. Only the toggle is clickable.
+  .lw-byline { position: relative; }
+
+  .lw-authors {
+    color: $lw-muted;
+    font-size: $metadata-font-size;
+    line-height: $content-line-height;
+    margin: 0;
+    padding-right: $lw-toggle-width;  // authors never run under the toggle
+  }
+
+  .lw-abstract {
+    summary {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      list-style: none;
+      color: $lw-muted;
+      font-size: $metadata-font-size;
+      line-height: $content-line-height;
+      white-space: nowrap;
+
+      &::-webkit-details-marker { display: none; }
+      &::before { content: "+ "; }
+      &:hover { color: $black-color; }
+      &:focus-visible { outline: 2px solid $lw-ink; outline-offset: 2px; }
+    }
+
+    &[open] summary::before { content: "\2212  "; }
+
+    p {
+      color: $lw-ink;
+      margin: .5rem 0 0;
+      overflow-wrap: anywhere;
+    }
+
+    .lw-all-authors {
+      color: $lw-muted;
+      font-size: $metadata-font-size;
+    }
+  }
+
+  // Phones: one column; venue and labels in a row above the title.
+  @media (max-width: 600px) {
+    .lw-item {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: .4rem;
+    }
+
+    .lw-side,
+    .lw-tags {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+}

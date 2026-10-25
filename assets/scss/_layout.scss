@@ -42,7 +42,7 @@ hr {
   padding: $base-spacing;
   margin-left: auto;
   margin-right: auto;
-  max-width: $content-width;
+  max-width: $page-width;
   font-weight: normal;
 }
 
@@ -74,9 +74,11 @@ hr {
   min-height: 80px;
 }
 
+// Header: name on the left, links on the right. When they don't fit on one
+// line, the links wrap onto a second line aligned with the name, instead of a
+// floated list dropping below it.
 .logo {
-  float: left;
-  margin: 0 0 1em 0;
+  margin: 0;
   cursor: pointer;
   letter-spacing: 0.8px;
   font-size: 20px;
@@ -90,10 +92,20 @@ hr {
 
 .nav {
   min-height: 64px;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem 2rem;
+  }
 }
 
 .navbar {
-  float: right;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.8em;
   margin: 0;
   position: relative;
   padding: 0;
@@ -101,8 +113,8 @@ hr {
   cursor: pointer;
 
   li {
-    display: inline-block;
-    padding: 0 .6em;
+    display: block;
+    padding: 0;
   }
 
   a {
@@ -192,4 +204,17 @@ hr {
   border-top: 0.2em solid lighten($light-gray-color, 13%);
   margin-bottom: $base-spacing * 2;
   margin-top: $base-spacing * 2;
+}
+
+// Text for screen readers only.
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -1,0 +1,77 @@
+---
+layout: page
+title: Literature Watch
+permalink: /literature/
+wide: true
+---
+{%- comment -%}
+  Rendered from _data/papers.json, which the paper-feed pipeline publishes.
+  Every field comes from third-party metadata, so each one goes through
+  `escape` and none through `markdownify`.
+  Authors: up to four are listed; longer lists show the first author's family
+  name and "et al." (e.g. "Devic et al."), with the full list inside the
+  abstract panel. The family name comes from Crossref (first_author_family);
+  if it is missing, the last word of the first author's name is used.
+{%- endcomment -%}
+{%- assign papers = site.data.papers -%}
+{%- assign max_authors = 4 -%}
+<div class="lw">
+  <p class="lw-intro">Recent papers by other researchers on computing reliability, selected
+  automatically from their abstracts. Inclusion is not an endorsement.</p>
+
+  {%- if papers and papers.size > 0 %}
+  <ul class="lw-legend" aria-label="Categories">
+    <li><span class="lw-tag lw-tag--hardware">hardware</span> devices and computer architecture</li>
+    <li><span class="lw-tag lw-tag--cluster">cluster</span> fleets and datacenters</li>
+    <li><span class="lw-tag lw-tag--workload">workload</span> software and applications</li>
+  </ul>
+
+  {%- assign years = papers | group_by: "year" -%}
+  {%- for year in years %}
+  <section class="lw-year" aria-labelledby="lw-{{ year.name }}">
+    <h2 class="lw-year-label" id="lw-{{ year.name }}">{{ year.name }}</h2>
+    {%- for paper in year.items %}
+    {%- assign author_count = paper.authors | size %}
+    <article class="lw-item" id="{{ paper.id | escape }}">
+      <div class="lw-side">
+        <span class="lw-venue">{{ paper.venue | escape }} {{ paper.year }}</span>
+        <span class="visually-hidden">Categories:</span>
+        <ul class="lw-tags">
+          {%- for category in paper.categories %}
+          <li class="lw-tag lw-tag--{{ category | escape }}">{{ category | escape }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="lw-main">
+        <h3 class="lw-title"><a href="{{ paper.url | escape }}">{{ paper.title | escape }}</a></h3>
+        {%- comment -%}
+          One line, two elements: authors on the left, the abstract toggle pinned
+          to the right. The opened abstract flows below at full width.
+        {%- endcomment %}
+        <div class="lw-byline">
+          <p class="lw-authors">
+            {%- if author_count > max_authors -%}
+              {%- assign lead = paper.first_author_family | default: "" -%}
+              {%- if lead == "" -%}{%- assign lead = paper.authors.first | split: " " | last -%}{%- endif -%}
+              {{ lead | escape }} et al.
+            {%- else -%}
+              {{ paper.authors | join: ", " | escape }}
+            {%- endif -%}
+          </p>
+          <details class="lw-abstract">
+            <summary>Abstract</summary>
+            <p>{{ paper.abstract | escape }}</p>
+            {%- if author_count > max_authors %}
+            <p class="lw-all-authors">Authors: {{ paper.authors | join: ", " | escape }}</p>
+            {%- endif %}
+          </details>
+        </div>
+      </div>
+    </article>
+    {%- endfor %}
+  </section>
+  {%- endfor %}
+  {%- else %}
+  <p>No papers yet.</p>
+  {%- endif %}
+</div>

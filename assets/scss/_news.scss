@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: var(--year-column) var(--date-column) minmax(0, 1fr);
   column-gap: var(--column-gap);
-  max-width: $homepage-width;
+  max-width: $page-width;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }

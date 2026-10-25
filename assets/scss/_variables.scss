@@ -23,8 +23,11 @@ $base-border-radius: .52em;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
-$content-width: 800px;
-$homepage-width: 960px;
+// Every page uses one frame: header, content, and footer share these edges.
+$page-width: 960px;
+// Long-form text (posts, About) keeps a readable line length inside that frame:
+// 752px ≈ 83 characters at 15px, the measure the site had before the frame widened.
+$prose-width: 752px;
 $content-paragraph-spacing: 1rem;
 
 // Colors
