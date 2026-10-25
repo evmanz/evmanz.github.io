@@ -5,7 +5,10 @@ permalink: /literature/
 wide: true
 ---
 {%- comment -%}
-  Rendered from _data/papers.json, which the paper-feed pipeline publishes.
+  Rendered from _data/literature/, which the paper-feed pipeline publishes as one
+  file per release: <VENUE>/<YEAR>.json for conferences, <VENUE>/<YEAR>/<MM>.json
+  for monthly venues such as CAL. Each file is {venue, release, label, papers}.
+  The loops below merge every release and sort newest first by sort_key.
   Every field comes from third-party metadata, so each one goes through
   `escape` and none through `markdownify`.
   Authors: up to four are listed; longer lists show the first author's family
@@ -13,7 +16,20 @@ wide: true
   abstract panel. The family name comes from Crossref (first_author_family);
   if it is missing, the last word of the first author's name is used.
 {%- endcomment -%}
-{%- assign papers = site.data.papers -%}
+{%- assign papers = "" | split: "" -%}
+{%- for venue in site.data.literature -%}
+  {%- for entry in venue[1] -%}
+    {%- assign node = entry[1] -%}
+    {%- if node.papers -%}
+      {%- assign papers = papers | concat: node.papers -%}
+    {%- else -%}
+      {%- for month in node -%}
+        {%- assign papers = papers | concat: month[1].papers -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign papers = papers | sort: "sort_key" | reverse -%}
 {%- assign max_authors = 4 -%}
 <div class="lw">
   <p class="lw-intro">Recent papers by other researchers on computing reliability, selected
@@ -34,7 +50,7 @@ wide: true
     {%- assign author_count = paper.authors | size %}
     <article class="lw-item" id="{{ paper.id | escape }}">
       <div class="lw-side">
-        <span class="lw-venue">{{ paper.venue | escape }} {{ paper.year }}</span>
+        <span class="lw-venue">{{ paper.venue_label | escape }}</span>
         <span class="visually-hidden">Categories:</span>
         <ul class="lw-tags">
           {%- for category in paper.categories %}
