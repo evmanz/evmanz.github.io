@@ -1,0 +1,210 @@
+{
+  "venue": "HPCA",
+  "release": "2026",
+  "label": "HPCA 2026",
+  "papers": [
+    {
+      "id": "p000346",
+      "title": "PinDrop: Breaking the Silence on SDCs in a Large-Scale Fleet",
+      "authors": [
+        "Peter W. Deutsch",
+        "Harish D. Dixit",
+        "Gautham Vunnam",
+        "Carl Moran",
+        "Eleanor Ozer",
+        "Sriram Sankar"
+      ],
+      "first_author_family": "Deutsch",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000346",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Silent Data Corruptions (SDCs) pose a significant and often hidden threat to the reliability of large-scale computing infrastructure, as they can silently compromise data integrity without immediate detection. Detecting such behaviors at hyperscale is often challenging due to their intermittent nature and the vast diversity of hardware and workloads in a large-scale fleet. This work addresses these challenges by introducing PinDrop, a characterization methodology that leverages continuous, high-frequency testing infrastructure across millions of servers to gather information about SDCs at scale. By leveraging extensive test-suites tailored to mimic real-world applications and exercise a wide range of CPU features, we provide the most comprehensive characterization of SDC failures to date, analyzing over 500 million test executions across millions of devices. Our findings reveal that 0.035% of tested machines suffer from at least one SDC failure during their lifetime. Examining years of data (rather than just a testing snapshot in time), we observe SDCs emerging long after initial deployment and persisting over time. Detailed analysis shows that an average of 0.0024% of tested machines begin failing in each quarter they are tested beyond an initial burn-in period, confirming a fundamental need for continuous testing. Our findings also provide further insights into SDC behaviors at-scale, including failure breakdowns across architectures, test families, specific core IDs, and output-level behaviors.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408620"
+    },
+    {
+      "id": "p000335",
+      "title": "SALT: Track-and-Mitigate Subarrays, Not Rows, for Blast-Radius-Free Rowhammer Defense",
+      "authors": [
+        "Moinuddin K. Qureshi"
+      ],
+      "first_author_family": "Qureshi",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000335",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Typical in-DRAM Rowhammer mitigation operates by identifying aggressor rows and refreshing a limited number of victim rows on either side of the aggressor row. The number of victim rows is specified by the Blast Radius. JEDEC recently introduced state-of-the-art Rowhammer defense, which includes Per-Row-Activation-Counting (PRAC) to identify aggressor rows and Alert-Back-Off (ABO) to allow the DRAM chip to obtain time to refresh two victim rows on either side of the aggressor row. The implicit assumption in PRAC is that charge loss beyond the two victim rows is negligibly small and does not represent a threat to the security of PRAC. In this paper, we develop Ripple Attack that can amplify even a small amount of leakage in distant rows to cause charge loss equivalent to$\\mathbf{3 x} \\boldsymbol{-} \\mathbf{7 8 x}$the activations tolerated by PRAC for the given threshold. The goal of our paper is to develop an in-DRAM mitigation that tolerates Rowhammer without relying on a pre-defined Blast Radius. We observe that as subarrays are spatially isolated from each other, activity in one subarray does not cause charge leakage in rows of another subarray. To develop Blast-RadiusFree Rowhammer mitigation, we propose SALT (Subarray-Level Tracking and Mitigation). SALT tracks activation counts per subarray, and when the count exceeds a specified value, it triggers ABO to obtain time for refreshing a portion of the subarray. SALT bounds the maximum number of activations to the subarray before all rows are guaranteed to be refreshed, thus providing Blast-Radius-Free Rowhammer mitigation. To reduce the slowdown from ABO, SALT-C coordinates the demand refresh operations such that ABO is not required if the activations to the subarray are below what can be handled by the demand refresh, thus reducing ABO by 48x. SALT-C not only provides stronger security guarantees than PRAC due to Blast-RadiusFreedom, but also has 38x lower storage overhead than PRAC, and incurs lower slowdown (0.3 % vs 1.7 %) than PRAC.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408602"
+    },
+    {
+      "id": "p000330",
+      "title": "Exploration of LLM Workload Reliability Based on di/dt Effects and Voltage Droops",
+      "authors": [
+        "Zhixing Jiang",
+        "Justin Garrigus",
+        "Allison Seigler",
+        "Ethan Syed",
+        "Yan-Lun Huang",
+        "Mehdi Sadi",
+        "Tawfik Rahal-Arabi",
+        "Lizy Kurian John"
+      ],
+      "first_author_family": "Jiang",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000330",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Large language model (LLM) inference workloads have emerged as a critical reliability challenge for cloud GPU systems. Unlike traditional workloads, the highly structured execution of LLMs creates large power oscillations. These oscillations become a vulnerability when their frequency aligns with the resonant modes of a GPU's power delivery network (PDN), leading to excessive voltage droops and unreliable operation. In this work, we present the first comprehensive profiling of LLM-induced power oscillations, revealing that many workloads generate oscillatory patterns in the MHz range-critically aligning with typical GPU PDN resonant frequencies and leading to excessive voltage droops. To systematically investigate this phenomenon, we developed a novel stressmark framework that generates workloads with controllable, high-frequency power oscillations and voltage droops. Our evaluation shows that operating at a resonant frequency induces voltage droops up to$2 \\times$larger than conventional workloads, exceeding critical noise margins. Critically, we find that real LLM workloads operating even near these frequencies generate significant voltage droops greater than 100 mV. Based on these findings, we propose a kernel staggering technique that mitigates this threat by shifting power oscillation frequencies away from resonance frequency, successfully reducing voltage droops and reducing reliability concerns. This work provides the first systematic understanding of LLM-PDN resonance and offers a practical solution to improve GPU reliability in AI cloud environments.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408597"
+    },
+    {
+      "id": "p000317",
+      "title": "MIRZA: Efficiently Mitigating Rowhammer with Randomization and ALERT",
+      "authors": [
+        "Hritvik Taneja",
+        "Ali Hajiabadi",
+        "Michele Marazzi",
+        "Kaveh Razavi",
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Taneja",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000317",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "In-DRAM Rowhammer mitigation requires three resources: space (to track aggressor rows), time (to perform mitigation), and energy (to refresh victim rows). An ideal in-DRAM mitigation must minimize all three overheads. Recent randomized trackers, such as MINT, can perform tracking with negligible storage overheads. However, they perform mitigation proactively and frequently, which incurs significant performance and energy overheads at low thresholds. Recently, JEDEC introduced Per-Row Activation Counters (PRAC) and ALERT Back Off (ABO) protocol to obtain the time for mitigation reactively, as needed. While PRAC+ABO minimizes the time and energy overheads of mitigation, PRAC incurs significant changes to the DRAM array and significant performance overhead (6.5% on average) due to increased memory timings to update the PRAC counters. Our goal is to develop an efficient in-DRAM mitigation that has low storage, performance, and energy overheads. Our paper proposes MIRZA, the first low-cost reactive in-DRAM mitigation. MIRZA relies on MINT to track aggressor rows. However, instead of proactively doing mitigation at regular intervals (via REF or RFM), MIRZA uses ABO to reactively obtain the time required for mitigation. To avoid frequent ABO, MIRZA employs Coarse-Grained Filtering to disable mitigations if the activation count is below a certain Filtering Threshold. To tolerate a threshold of 1K, MIRZA requires a storage overhead of only 196 bytes of SRAM per bank. Compared to MINT, MIRZA reduces the mitigation overheads by 28.5×. Compared to PRAC, MIRZA has 45× lower area overheads and negligible slowdown (0.36% average slowdown vs. 6.5% for PRAC).",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408571"
+    },
+    {
+      "id": "p000308",
+      "title": "MemSOS: OS-Guided Selective Memory Mirroring",
+      "authors": [
+        "Junghoon Kim",
+        "Jongheon Jeong",
+        "Seokwon Moon",
+        "Seong Hoon Seo",
+        "Yeonhong Park",
+        "Jinkyu Jeong",
+        "Nam Sung Kim",
+        "Jae W. Lee"
+      ],
+      "first_author_family": "Kim",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000308",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Memory errors pose an escalating threat to datacenter reliability as DRAM technology scales to smaller nodes and servers process ever-larger datasets. While Error Correction Code (ECC) provides a first-line defense, uncorrectable errors still cause catastrophic server failures with significant economic impact. Memory mirroring offers complementary protection against these errors, but existing memory mirroring solutions require reserving specific memory regions exclusively for mirroring, which incurs significant capacity overhead and thus limits wide adoption. A recent proposal suggests leveraging free memory space for mirroring, but it leaves a critical research question unanswered: which data to mirror when free memory is limited. Thus, we propose MemSOS, a selective memory mirroring system that dynamically chooses which pages to mirror based on their impact on system reliability. Specifically, MemSOS selects pages to mirror based on their criticality and recency. Criticality is evaluated by examining the page type, while recency serves as a proxy for the likelihood of future access. Our evaluation demonstrates that MemSOS reduces system Failures In Time (FIT) by up to 19,000× compared to a state-of-the-art partial mirroring scheme, while maintaining less than 3 % performance overhead. In many cases, MemSOS achieves reliability levels comparable to full mirroring, underscoring its effectiveness in maximizing system availability under limited free memory space.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408560"
+    },
+    {
+      "id": "p000288",
+      "title": "ReScue: Reliable and Secure CXL Memory",
+      "authors": [
+        "Chihun Song",
+        "Austin Antony Cruz",
+        "Michael Jaemin Kim",
+        "Minbok Wi",
+        "Gaohan Ye",
+        "Kyungsan Kim",
+        "Sangyeol Lee",
+        "Jung Ho Ahn",
+        "Nam Sung Kim"
+      ],
+      "first_author_family": "Song",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000288",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Compute Express Link (CXL) fundamentally shifts the memory abstraction boundary, moving memory management functions from the host CPU to external controllers. While this decoupling allows hyperscalers to integrate diverse media, such as cost-effective, recycled DDR4 modules, it transforms the memory controller into a complex system with new integration challenges. First, we uncover that integrating CXL and memory controller IPs via the industry-standard AXI interconnect creates critical bottlenecks. We demonstrate that variable access latency and out-of-order responses, essential for CXL, can quickly saturate the limited AXI tag space, limiting bandwidth and even causing system hangs in commercial platforms. However, this decoupled architecture also creates a unique opportunity: the CXL controller can exploit its support for variable-latency responses and near-memory processing to implement transparent reliability and security mechanisms. We propose ReScue, a suite of hardware solutions implemented and validated on an Intel Agilex platform. ReScue-R leverages CXL's variable access latency and out-of-order responses to transparently retrieve remapping addresses stored within faulty blocks. By utilizing a Bloom filter to predict faults and minimize overhead, it achieves fault tolerance$9.6 \\times 10^{4}$times higher than standard SECDED ECC with only 0.2% performance degradation. ReScue-S addresses security; after demonstrating the first successful Row Hammer (RH) bit flips and physical-address reconstruction on a CXL system, we show that ReScue-S can shape response latencies to prevent timing-based side-channel attacks with only 1.1% performance degradation. Finally, we propose a solution to the discovered AXI-induced system hangs to ensure stable CXL operation.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408527"
+    },
+    {
+      "id": "p000262",
+      "title": "HR-DCIM: High-Reliability Floating-Point Digital CIM Architecture With Unified Low-Cost Iterative Error Correction",
+      "authors": [
+        "Zhen He",
+        "Yiqi Wang",
+        "Zhiheng Yue",
+        "Zihan Wu",
+        "Huiming Han",
+        "Shaojun Wei",
+        "Yang Hu",
+        "Fengbin Tu",
+        "Shouyi Yin"
+      ],
+      "first_author_family": "He",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000262",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Digital computing-in-memory (CIM) is a promising computing paradigm for the neural network (NN) acceleration. However, during the actual deployment process of digital CIM chips, we find that existing digital CIM designs face severe computing reliability issues, which are crucial for real product development but remain underexplored. Therefore, this work pioneers a systematic computing reliability analysis for digital CIM across off-memory and in-memory levels. We find that both the off-memory floating-point (FP) exponent alignment and the in-memory random cell bit-flip errors impair digital CIM's computing reliability, causing significant truncation and bit-flip accuracy loss. Critically, existing reliability solutions are incompatible with the unique multi-row accumulation structure of digital CIM, which either severely damage digital CIM's performance or result in prohibitive overhead. To address above challenges, we propose HR-DCIM: a highreliability FP digital CIM architecture featuring unified lowcost iterative error correction. Specifically, for the off-memory reliability, we propose an exponent-mantissa joint-alignment mechanism to repurpose inherent invalid bits of aligned mantissas as compensation bits to reduce alignment truncation loss, without damaging digital CIM's performance. Then, for the in-memory reliability, we propose a remainder aliasing-based unified multiply-accumulation (MAC) error correction mechanism to correct possible MAC errors caused by various cell error cases with low-cost iteration. Experimental results show that the proposed techniques enable digital CIM to maintain high performance and efficiency across various operating voltage conditions without significant accuracy loss.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408482"
+    },
+    {
+      "id": "p000256",
+      "title": "Predicting DRAM Failures at Scale: A Two-Stage Approach for Heterogeneous Systems",
+      "authors": [
+        "Chenglin Wang",
+        "Shouxin Wang",
+        "Zhirong Shen",
+        "Lu Tang",
+        "Shuyue Zhou",
+        "Ronglong Wu",
+        "Min Zhou",
+        "Jialiang Yu",
+        "Yiming Zhang"
+      ],
+      "first_author_family": "Wang",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2026",
+      "year": 2026,
+      "date": "2026-01-31",
+      "sort_key": "2026-01-31-p000256",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware"
+      ],
+      "abstract": "Memory failures in large-scale production environments pose critical threats to system reliability and service availability. While existing studies have conducted in-depth analyses of the temporal and spatial correlations of memory errors, differences in characteristics across architectures remain largely unexplored. To uncover these overlooked correlations, this paper conducts an extensive analysis of over 130,000 DDR4 DIMMs collected from large-scale heterogeneous production clusters over a nine-month period. Through systematic spatial and temporal analysis across two Intel x86 architectures and four major DRAM vendors, we uncover five new findings and propose a novel twostage training strategy. This strategy addresses sample quality issues by applying temporal weighting to positive samples and adaptive reweighting to negative samples. It also incorporates comprehensive multi-dimensional feature engineering, covering static, spatial, temporal, and micro-level characteristics. Finally, it integrates dual-driven sampling strategies and adaptive prediction timing to balance prediction accuracy and operational efficiency. Extensive evaluation shows that our CatBoost-based model achieves F1-scores of 49.9% on Intel x86v5 and 57.6% on Intel x86v6, substantially outperforming existing methods. This cross-architecture validation demonstrates the robustness and generalization of our approach across different hardware platforms. To the best of our knowledge, our work presents the first large-scale cross-architecture analysis of memory error patterns and provides new insights for production-scale memory failure prediction systems.",
+      "url": "https://doi.org/10.1109/hpca68181.2026.11408474"
+    }
+  ]
+}

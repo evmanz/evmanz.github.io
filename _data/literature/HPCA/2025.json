@@ -1,0 +1,274 @@
+{
+  "venue": "HPCA",
+  "release": "2025",
+  "label": "HPCA 2025",
+  "papers": [
+    {
+      "id": "p000210",
+      "title": "Predicting DRAM-Caused Risky VMs in Large-Scale Clouds",
+      "authors": [
+        "Yaoguang Yong",
+        "Xiaoming Du",
+        "Xuhua Ma",
+        "Yuxiang Wang",
+        "Bin Yao",
+        "Xudong Zheng",
+        "Huite Yi"
+      ],
+      "first_author_family": "Yong",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000210",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware",
+        "workload"
+      ],
+      "abstract": "DRAM failures are one of the leading failures in large-scale clouds. Previous studies focus on predicting DRAM uncorrectable errors (UEs) and mitigating the impact of DRAM failures through node-level workload migration and proactive dual in-line memory module (DIMM) replacement. For cloud systems, node migration means migrating all virtual machines (VMs) to other nodes. Such a coarse-grained migration consumes considerable resources. Inspired by the observation that DRAM errors tend to cluster in space, this paper proposes Pegasus, the first VM-level solution to mitigate DRAM failures. The key idea of Pegasus is to use the VM as the basic unit for predicting DRAM failures instead of the whole node. Specifically, we introduce a new concept of DRAM-caused risky VMs, which causes node unavailability when accessed. We design a novel Error-VM mapping framework deployed on a large-scale cloud. Statistical results confirm that DRAM errors are concentrated in the address space managed by a small number of VMs. By combining ECC and spatio-temporal features, our predictor achieves decent performance. Pegasus has been deployed online on over $\\mathbf{3 0 0, 0 0 0}$ nodes in the production cloud. The comparative study shows that the prediction performance of Pegasus is comparable to node-level solutions. Meanwhile, our approach offers over $\\mathbf{7 0 \\%}$ lower costs and avoids more than $\\mathbf{1 0 \\%}$ of VM crashes compared to node-level mitigation.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00094"
+    },
+    {
+      "id": "p000141",
+      "title": "Revisiting Reliability in Large-Scale Machine Learning Research Clusters",
+      "authors": [
+        "Apostolos Kokolis",
+        "Michael Kuchnik",
+        "John Hoffman",
+        "Adithya Kumar",
+        "Parth Malani",
+        "Faye Ma",
+        "Zachary DeVito",
+        "Shubho Sengupta",
+        "Kalyan Saladi",
+        "Carole-Jean Wu"
+      ],
+      "first_author_family": "Kokolis",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000141",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "workload"
+      ],
+      "abstract": "Reliability is a fundamental challenge in operating large-scale machine learning (ML) infrastructures, particularly as the scale of ML models and training clusters continues to grow. Despite decades of research on infrastructure failures, the impact of job failures across different scales remains unclear. This paper presents a view of managing two large, multi-tenant ML clusters, providing quantitative analysis, operational experience, and our own perspective in understanding and addressing reliability concerns at scale. Our analysis reveals that while large jobs are most vulnerable to failures, smaller jobs make up the majority of jobs in the clusters and should be incorporated into optimization objectives. We identify key workload properties, compare them across clusters, and demonstrate essential reliability requirements for pushing the boundaries of ML training at scale.We hereby introduce a taxonomy of failures and key reliability metrics, analyze 11 months of data from two state-of-the-art ML environments with 4 million jobs and over 150 million A100 GPU hours. Building on our data, we fit a failure model to project Mean Time to Failure for various GPU scales. We further propose a method to estimate a related metric, Effective Training Time Ratio, as a function of job parameters, and we use this model to gauge the efficacy of potential software mitigations at scale. Our work provides valuable insights and future research directions for improving the reliability of AI supercomputer clusters, emphasizing the need for flexible, workload-agnostic, and reliability-aware infrastructure, system software, and algorithms.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00096"
+    },
+    {
+      "id": "p000140",
+      "title": "Enhancing Large-Scale AI Training Efficiency: The C4 Solution for Real-Time Anomaly Detection and Communication Optimization",
+      "authors": [
+        "Jianbo Dong",
+        "Bin Luo",
+        "Jun Zhang",
+        "Pengcheng Zhang",
+        "Fei Feng",
+        "Yikai Zhu",
+        "Ang Liu",
+        "Zian Chen",
+        "Yi Shi",
+        "Hairong Jiao",
+        "Gang Lu",
+        "Yu Guan",
+        "Ennan Zhai",
+        "Wencong Xiao",
+        "Hanyu Zhao",
+        "Man Yuan",
+        "Siran Yang",
+        "Xiang Li",
+        "Jiamang Wang",
+        "Rui Men",
+        "Jianwei Zhang",
+        "Chang Zhou",
+        "Dennis Cai",
+        "Yuan Xie",
+        "Binzhang Fu"
+      ],
+      "first_author_family": "Dong",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000140",
+      "publication": "published",
+      "categories": [
+        "cluster"
+      ],
+      "abstract": "The emergence of Large Language Models (LLMs) has necessitated the adoption of distributed training techniques, involving the deployment of thousands of GPUs to train a single model. Unfortunately, the efficiency of large-scale distributed training systems is often suboptimal due to the increased likelihood of hardware errors in high-end GPU products and the heightened risk of network traffic collisions. Specifically, GPUs involved in the same job require periodic synchronization to exchange necessary data, such as gradients, parameters, or activations. As a result, any local hardware failure can disrupt training tasks, and the inability to swiftly identify faulty components leads to a significant waste of GPU resources. Moreover, prolonged communication due to traffic collisions can substantially increase GPU waiting times. To address these challenges, we propose a communication-driven solution, namely the C 4. The key insights of C 4 are twofold. First, the load in distributed training exhibits homogeneous characteristics and is divided into iterations through periodic synchronization, therefore hardware anomalies would incur certain syndrome in collective communication. By leveraging this feature, $\\mathbf{C} 4$ can rapidly identify the faulty components, swiftly isolate the anomaly, and restart the task, thereby avoiding resource wastage caused by delays in anomaly detection. Second, the predictable communication model of collective communication, involving a limited number of long-lived flows, allows C 4 to efficiently execute traffic planning, substantially reducing bandwidth competition among these flows. The $\\mathbf{C 4}$ has been extensively deployed across real-world production systems in a hyperscale cloud provider, yielding a significant improvement in system efficiency, from 30% to $\\mathbf{4 5 \\%}$. This enhancement is attributed to a $\\mathbf{3 0 \\%}$ reduction in error-induced overhead and a 15% reduction in communication costs.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00095"
+    },
+    {
+      "id": "p000132",
+      "title": "QPRAC: Towards Secure and Practical PRAC-based Rowhammer Mitigation using Priority Queues",
+      "authors": [
+        "Jeonghyun Woo",
+        "Shaopeng Chris Lin",
+        "Prashant J. Nair",
+        "Aamer Jaleel",
+        "Gururaj Saileshwar"
+      ],
+      "first_author_family": "Woo",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000132",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "JEDEC has introduced the Per Row Activation Counting (PRAC) framework for DDR5 and future DRAMs to enable precise counting of DRAM row activations. PRAC enables a holistic mitigation of Rowhammer attacks even at ultra-low Rowhammer thresholds. PRAC uses an Alert Back-Off (ABO) protocol to request the memory controller to issue Rowhammer mitigation requests. However, recent PRAC implementations are either insecure or impractical. For example, Panopticon, the inspiration for PRAC, is rendered insecure if implemented per JEDEC’s PRAC specification. On the other hand, the recent UPRAC proposal is impractical since it needs oracular knowledge of the ‘top- N ‘ activated DRAM rows that require mitigation.This paper provides the first secure, scalable, and practical RowHammer solution using the PRAC framework. The crux of our proposal is the design of a priority-based service queue (PSQ) for mitigations that prioritizes pending mitigations based on activation counts to avoid the security risks of prior solutions. This provides principled security using the reactive ABO protocol. Furthermore, we co-design our PSQ, with opportunistic mitigation on Refresh Management (RFM) operations and proactive mitigation during refresh (REF), to limit the performance impact of ABO-based mitigations. QPRAC provides secure and practical RowHammer mitigation that scales to Rowhammer thresholds as low as 71 while incurring a $0.8 \\%$ slowdown for benign workloads, which further reduces to $0 \\%$ with proactive mitigations.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00080"
+    },
+    {
+      "id": "p000131",
+      "title": "DAPPER: A Performance-Attack-Resilient Tracker for RowHammer Defense",
+      "authors": [
+        "Jeonghyun Woo",
+        "Prashant J. Nair"
+      ],
+      "first_author_family": "Woo",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000131",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "RowHammer vulnerabilities pose a significant threat to modern DRAM-based systems, where rapid activation of DRAM rows can induce bit-flips in neighboring rows. To mitigate this, state-of-the-art host-side RowHammer mitigations typically rely on shared counters or tracking structures. While these optimizations benefit benign applications, they are vulnerable to Performance Attacks (Perf-Attacks), where adversaries exploit shared structures to reduce DRAM bandwidth for co-running benign applications by increasing DRAM accesses for RowHammer counters or triggering repetitive refreshes required for the early reset of structures, significantly degrading performance. In this paper, we propose secure hashing mechanisms to thwart adversarial attempts to capture the mapping of shared structures. We propose DAPPER, a novel low-cost tracker resilient to Perf-Attacks even at ultra-low RowHammer thresholds. We first present a secure hashing template in the form of DAPPER-S. We then develop Dapper-H, an enhanced version of DapperS, incorporating double-hashing, novel reset strategies, and mitigative refresh techniques. Our security analysis demonstrates the effectiveness of DAPPER-H against both RowHammer and Perf-Attacks. Experiments with 57 workloads from SPEC2006, SPEC2017, TPC, Hadoop, MediaBench, and YCSB show that, even at an ultra-low RowHammer threshold of 500, DapperH incurs only a 0.9% slowdown in the presence of Perf-Attacks while using only 96 KB of SRAM per 32GB of DRAM memory.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00079"
+    },
+    {
+      "id": "p000130",
+      "title": "AutoRFM: Scaling Low-Cost in-DRAM Trackers to Ultra-Low Rowhammer Thresholds",
+      "authors": [
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Qureshi",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000130",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "In-DRAM Rowhammer mitigation has the potential to solve the Rowhammer problem without relying on other parts of the system. In-DRAM mitigation requires space (to identify the aggressor rows) and time (to perform the victim refresh). To reduce the storage overheads of tracking, recent works have developed secure low-cost in-DRAM trackers that can probabilistically identify aggressor rows. To obtain the time required for mitigation, these trackers rely on the Refresh Management (RFM) command introduced in DDR5. As RFM stalls the bank for a latency of 200ns-400ns, frequent use of RFM can cause significant slowdowns. For example, scaling the recent MINT tracker to a threshold of 100 incurs 33% slowdown. The goal of this paper is to enable low-cost trackers to tolerate ultralow thresholds (sub-100) while incurring negligible slowdown. This paper proposes AutoRFM, a transparent RFM mechanism that can provide mitigation time to the DRAM chips without stalling the bank. The key insight in AutoRFM is to leverage the subarray structure (e.g. each bank contains 256 subarrays) and perform mitigation on only one of the subarrays. Operations to all subarrays that are not under mitigation are serviced without any interruption. If activation occurs to the subarray under mitigation, the DRAM chip sends an ALERT signal informing the Memory Controller to retry after a predefined time. As AutoRFM works best if consecutive requests to the same bank do not get mapped to the same subarray, we use Randomized Memory Mapping to break the spatial correlation between memory accesses. Furthermore, we also develop a Fractal Mitigation Algorithm that can tolerate transitive attacks (such as Half-Double) without requiring recursive mitigations to the same subarray. Our design ensures that a declined request does not have to wait more than 200 ns before retrying, thus limiting the slowdown and avoiding any potential for denial of service. Our evaluations, with SPEC, GAP, and stream workloads, show that AutoRFM enables low-cost trackers to tolerate a threshold of as low as 74 while incurring an average slowdown of only 3.1%.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00078"
+    },
+    {
+      "id": "p000126",
+      "title": "Chronus: Understanding and Securing the Cutting-Edge Industry Solutions to DRAM Read Disturbance",
+      "authors": [
+        "Oğuzhan Canpolat",
+        "A. Giray Yağlıkçı",
+        "Geraldo F. Oliveira",
+        "Ataberk Olgun",
+        "Nisa Bostancı",
+        "Ismail Emir Yuksel",
+        "Haocong Luo",
+        "Oğuz Ergin",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Canpolat",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000126",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Read disturbance in modern DRAM is an important robustness (security, safety, and reliability) problem, where repeatedly accessing (hammering) a row of DRAM cells (DRAM row) induces bitflips in other physically nearby DRAM rows. Shrinking technology node size exacerbates DRAM read disturbance over generations. To help mitigate read disturbance, the latest DDR5 specifications (as of April 2024) introduced a new RowHammer mitigation framework, called Per Row Activation Counting (PRAC). PRAC 1) enables the DRAM chip to accurately track row activations by allocating an activation counter per row and 2) provides the DRAM chip with the necessary time window to perform RowHammer-preventive refreshes by introducing a new back-off signal. Unfortunately, no prior work rigorously studies PRAC’s security guarantees and overheads. In this paper, we 1) present the first rigorous security, performance, energy, and cost analyses of PRAC and 2) propose Chronus, a new mechanism that addresses PRAC’s two major weaknesses. Our analysis shows that PRAC’s system performance overhead on benign applications is non-negligible for modern DRAM chips and prohibitively large for future DRAM chips that are more vulnerable to read disturbance. We identify two weaknesses of PRAC that cause these overheads. First, PRAC increases critical DRAM access latency parameters due to the additional time required to increment activation counters. Second, PRAC performs a constant number of preventive refreshes at a time, making it vulnerable to an adversarial access pattern, known as the wave attack, and consequently requiring it to be configured for significantly smaller activation thresholds. To address PRAC’s two weaknesses, we propose a new on-DRAM-die RowHammer mitigation mechanism, Chronus. Chronus 1) updates row activation counters concurrently while serving accesses by separating counters from the data and 2) prevents the wave attack by dynamically controlling the number of preventive refreshes performed. Our performance analysis shows that Chronus’s system performance overhead is near-zero for modern DRAM chips and very low for future DRAM chips. Chronus outperforms three variants of PRAC and three other state-of-the-art read disturbance solutions. We discuss Chronus’s and PRAC’s implications for future systems and foreshadow future research directions. To aid future research, we open-source our Chronus implementation at https://github.com/CMU-SAFARI/Chronus.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00071"
+    },
+    {
+      "id": "p000125",
+      "title": "Understanding RowHammer Under Reduced Refresh Latency: Experimental Analysis of Real DRAM Chips and Implications on Future Solutions",
+      "authors": [
+        "Yahya Can Tuğrul",
+        "A. Giray Yağlıkçı",
+        "İsmail Emir Yüksel",
+        "Ataberk Olgun",
+        "Oğuzhan Canpolat",
+        "Nisa Bostancı",
+        "Mohammad Sadrosadati",
+        "Oğuz Ergin",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Tuğrul",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000125",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Read disturbance in modern DRAM chips is a widespread weakness that is used for breaking memory isolation, one of the fundamental building blocks of system security and privacy. RowHammer is a prime example of read disturbance in DRAM where repeatedly accessing (hammering) a row of DRAM cells (DRAM row) induces bitflips in physically nearby DRAM rows (victim rows). Unfortunately, shrinking technology node size exacerbates RowHammer and as such, significantly fewer accesses can induce bitflips in newer DRAM chip generations. To ensure robust DRAM operation, state-of-the-art mitigation mechanisms restore the charge in potential victim rows (i.e., they perform preventive refresh or charge restoration). With newer DRAM chip generations, these mechanisms perform preventive refresh more aggressively and cause larger performance, energy, or area overheads. Therefore, it is essential to develop a better understanding and in-depth insights into the preventive refresh to secure real DRAM chips at low cost. In this paper, our goal is to mitigate RowHammer at low cost by understanding the preventive refresh latency and the impact of reduced refresh latency on RowHammer. To this end, we present the first rigorous experimental study on the interactions between refresh latency and RowHammer characteristics in real DRAM chips. Our experimental characterization using 388 real DDR4 DRAM chips from three major manufacturers demonstrates that a preventive refresh latency can be significantly reduced (by 64%) at the expense of requiring slightly more (by 0.54%) preventive refreshes. To investigate the impact of reduced preventive refresh latency on system performance and energy efficiency, we reduce the preventive refresh latency and adjust the aggressiveness of existing RowHammer solutions by developing a new mechanism, Partial Charge Restoration for Aggressive Mitigation (PaCRAM). Our results show that by reducing the preventive refresh latency, PaCRAM reduces the performance and energy overheads induced by five state-of-the-art RowHammer mitigation mechanisms with small additional area overhead. Thus, PaCRAM introduces a novel perspective into addressing RowHammer vulnerability at low cost by leveraging our experimental observations. To aid future research, we open-source our PaCRAM implementation at https://github.com/CMU-SAFARI/PaCRAM.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00070"
+    },
+    {
+      "id": "p000124",
+      "title": "Variable Read Disturbance: An Experimental Analysis of Temporal Variation in DRAM Read Disturbance",
+      "authors": [
+        "Ataberk Olgun",
+        "F. Nisa Bostancı",
+        "İsmail Emir Yüksel",
+        "Oğuzhan Canpolat",
+        "Haocong Luo",
+        "Geraldo F. Oliveira",
+        "A. Giray Yağlıkçı",
+        "Minesh Patel",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Olgun",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000124",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Modern DRAM chips are subject to read disturbance errors. These errors manifest as security-critical bitflips in a victim DRAM row that is physically nearby a repeatedly activated (opened) aggressor row (RowHammer) or an aggressor row that is kept open for a long time (RowPress). State-of-the-art read disturbance mitigations rely on accurate and exhaustive characterization of the read disturbance threshold ($R D T$) (e.g., the number of aggressor row activations needed to induce the first RowHammer or RowPress bitflip) of every DRAM row (of which there are millions or billions in a modern system) to prevent read disturbance bitflips securely and with low overhead. We experimentally demonstrate for the first time that the RDT of a DRAM row significantly and unpredictably changes over time. We call this new phenomenon variable read disturbance (VRD). Our extensive experiments using 160 DDR4 chips and 4 HBM2 chips from three major manufacturers yield three key observations. First, it is very unlikely that relatively few RDT measurements can accurately identify the RDT of a DRAM row. The minimum RDT of a DRAM row appears after tens of thousands of measurements (e.g., up to 94,467), and the minimum RDT of a DRAM row is $3.5 \\times$ smaller than the maximum RDT observed for that row. Second, the probability of accurately identifying a row’s RDT with a relatively small number of measurements reduces with increasing chip density or smaller technology node size. Third, data pattern, the amount of time an aggressor row is kept open, and temperature can affect the probability of accurately identifying a DRAM row’s RDT. Our empirical results have implications for the security guarantees of read disturbance mitigation techniques: if the RDT of a DRAM row is not identified accurately, these techniques can easily become insecure. We discuss and evaluate using a guardband for RDT and error-correcting codes for mitigating read disturbance bitflips in the presence of RDTs that change unpredictably over time. We conclude that $a\\gt 10 \\%$ guardband for the minimum observed RDT combined with SECDED or Chipkill-like SSC error-correcting codes could prevent read disturbance bitflips at the cost of large read disturbance mitigation performance overheads (e.g., 45% performance loss for an RDT guardband of $50 \\%$). We hope and believe future work on efficient online profiling mechanisms and configurable read disturbance mitigation techniques could remedy the challenges imposed on today’s read disturbance mitigations by the variable read disturbance phenomenon.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00069"
+    },
+    {
+      "id": "p000094",
+      "title": "Veritas – Demystifying Silent Data Corruptions: μArch-Level Modeling and Fleet Data of Modern x86 CPUs",
+      "authors": [
+        "Odysseas Chatzopoulos",
+        "Nikos Karystinos",
+        "George Papadimitriou",
+        "Dimitris Gizopoulos",
+        "Harish D. Dixit",
+        "Sriram Sankar"
+      ],
+      "first_author_family": "Chatzopoulos",
+      "venue": "HPCA",
+      "venue_label": "HPCA 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "sort_key": "2025-03-01-p000094",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware"
+      ],
+      "abstract": "Hyperscalers have reported unexpectedly high numbers of defective CPU chips, with a defect rate of 1 in a 1000, leading to Silent Data Corruptions (SDCs) in their computing fleets. However, there is no public data on the rate of SDC incidents (corrupted program executions) in large fleets, nor nor any detailed information on which CPU units, microarchitectures, or workloads are more likely to generate SDCs due to silicon defects. While CPU array structures have been studied for fault effects, arithmetic units like integer and floating-point units have not been thoroughly analyzed as potential root causes of SDCs. This paper addresses this critical gap by accurately modeling hardware faults in the arithmetic units of modern x86 CPUs and measuring the probability and rates of SDCs. Using a full-system gem5-based fault injector, the paper examines SDC trends across five recent $x 86$ microarchitectures, various arithmetic units, and instruction classes. By integrating real-world defect rates from large-scale datacenter experiments with early-stage modeling and simulation, the paper provides critical insights into SDC incident rates across different systems. This information is essential for guiding hardware-based or software-based fault protection methods and is the paper’s primary contribution to minimizing the impact of silent data corruptions in computing.",
+      "url": "https://doi.org/10.1109/hpca61900.2025.00012"
+    }
+  ]
+}
