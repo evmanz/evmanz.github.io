@@ -1,0 +1,139 @@
+{
+  "venue": "MICRO",
+  "release": "2024",
+  "label": "MICRO 2024",
+  "papers": [
+    {
+      "id": "p001385",
+      "title": "LightWSP: Whole-System Persistence on the Cheap",
+      "authors": [
+        "Yuchen Zhou",
+        "Jianping Zeng",
+        "Changhee Jung"
+      ],
+      "first_author_family": "Zhou",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001385",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Whole-system persistence (WSP) has recently attracted more interest thanks to its transparency and performance benefits over partial-system persistence where users are not only burdened by complex persistent programming but also incapable of using DRAM as LLC. Nevertheless, existing WSP work either introduces high hardware cost or causes non-trivial performance overhead. To this end, this paper presents LightWSP, a compiler/architecture co-design scheme that can achieve WSP in a lightweight yet performant manner. LightWSP compiler partitions program into a series of recoverable regions (epochs) with their live-out registers checkpointed, while LightWSP hardware persists the stores of the regions-whose boundary serves as a power failure recovery point-enforcing crash consistency; LightWSP leverages the battery-backed write pending queue (WPQ) of a memory controller as a redo buffer, i.e., all stores are first buffered in WPQ and then persisted together in non-volatile memory (NVM) at each region end. In this way, no matter when power failure happens, NVM is never corrupted by the stores of the power-interrupted region, facilitating correct recovery. In particular, LightWSP supports multiple memory controllers on the cheap without costly speculation/misspeculation handling mechanisms used by prior work. The experimental results with 38 applications show that LightWSP incurs only an average of 9.0% run-time overhead. This is on par with the state-of-the-art work, that complicates the core microarchitecture significantly with its intrusive design for memory controller speculation, yet the hardware cost of LightWSP is near zero (0.5B per core).",
+      "url": "https://doi.org/10.1109/micro61859.2024.00025"
+    },
+    {
+      "id": "p001342",
+      "title": "Self-Managing DRAM: A Low-Cost Framework for Enabling Autonomous and Efficient DRAM Maintenance Operations",
+      "authors": [
+        "Hasan Hassan",
+        "Ataberk Olgun",
+        "A. Giray Yağlıkçı",
+        "Haocong Luo",
+        "Onur Mutlu",
+        "ETH Zurich"
+      ],
+      "first_author_family": "Hassan",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001342",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "The memory controller is in charge of managing DRAM maintenance operations (e.g., refresh, RowHammer protection, memory scrubbing) to reliably operate modern DRAM chips. Implementing new maintenance operations often necessitates modifications in the DRAM interface, memory controller, and potentially other system components. Such modifications are only possible with a new DRAM standard, which takes a long time to develop, likely leading to slow progress in the adoption of new architectural techniques in DRAM chips. We propose a new low-cost DRAM architecture, Self-Managing DRAM (SMD), that enables autonomous in-DRAM maintenance operations by transferring the responsibility for controlling main-tenance operations from the memory controller to the SMD chip. To enable autonomous maintenance operations, we make a single, simple modification to the DRAM interface, such that an SMD chip rejects memory controller accesses to DRAM regions (e.g., a subarray or a bank) under maintenance, while allowing memory accesses to other DRAM regions. Thus, SMD enables 1) implementing new in-DRAM maintenance mechanisms (or modifying existing ones) with no further changes in the DRAM interface, memory controller, or other system components, and 2) overlapping the latency of a maintenance operation in one DRAM region with the latency of accessing data in another. We evaluate SMD and show that it 1) can be implemented without adding new pins to the DDRx interface with low latency (0.4% of row activation latency) and area (1.1% of a 45.5 mm2 DRAM chip) overhead, 2) achieves 4.1 % average speedup across 20 four-core memory-intensive workloads over a DDR4-based system/-DRAM co-design technique that intelligently parallelizes main-tenance operations with memory accesses, and 3) guarantees for-ward progress for rejected memory accesses. We believe and hope SMD can enable innovations in DRAM architecture to rapidly come to fruition. We open source all SMD source code and data at https://github.com/CMU-SAFARI/SelfManagingDRAM.",
+      "url": "https://doi.org/10.1109/micro61859.2024.00074"
+    },
+    {
+      "id": "p001341",
+      "title": "ImPress: Securing DRAM Against Data-Disturbance Errors via Implicit Row-Press Mitigation",
+      "authors": [
+        "Anish Saxena",
+        "Aamer Jaleel",
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Saxena",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001341",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "DRAM cells are susceptible to Data-Disturbance Errors (DDE), which can be exploited by an attacker to compromise system security. Rowhammer is a well-known DDE vulnerability that occurs when a row is repeatedly activated. Rowhammer can be mitigated by tracking aggressor rows inside DRAM (in-DRAM) or at the Memory Controller (MC). Row-Press (RP) is a new DDE vulnerability that occurs when a row is kept open for a long time. RP significantly reduces the number of activations required to induce an error, thus breaking existing RH solutions. Prior work on Explicit Row-Press mitigation, ExPress, requires the memory controller to limit the maximum row-open-time, and redesign existing Rowhammer solutions with reduced Rowhammer threshold. Unfortunately, ExPress incurs significant performance and storage overheads, and being a memory controller-based solution, it is incompatible with in-DRAM trackers. In this paper, we propose Implicit Row-Press mitigation (in-Press), which does not restrict row-open-time, is compatible with memory controller-based and in-DRAM solutions and does not reduce the tolerated Rowhammer threshold. In-Press treats a row open for a specified time as equivalent to an activation. We design in-Press by developing a Unified Charge-Loss Model, which combines the net effect of both Rowhammer and Row-Press for arbitrary patterns. We analyze both controller-based (Graphene and PARA) and in-DRAM trackers (Mithril and MINT). We show that in-Press makes Rowhammer solutions resilient to Row-Press transparently without affecting the Rowhammer threshold.",
+      "url": "https://doi.org/10.1109/micro61859.2024.00073"
+    },
+    {
+      "id": "p001339",
+      "title": "MINT: Securely Mitigating Rowhammer with a Minimalist in-DRAM Tracker",
+      "authors": [
+        "Moinuddin Qureshi",
+        "Salman Qazi",
+        "Aamer Jaleel"
+      ],
+      "first_author_family": "Qureshi",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001339",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "This paper investigates secure low-cost in-DRAM trackers for mitigating Rowhammer (RH). In-DRAM solutions have the potential to solve the RH problem within the DRAM chip without relying on other parts of the system. However, in-DRAM mitigation suffers from two key challenges: First, the mitigations are synchronized with refresh, which means that we cannot mitigate at arbitrary times. Second, the SRAM area available for aggressor tracking is limited to only a few bytes. Existing low-cost in-DRAM trackers (such as TRR) have been broken by well-crafted access patterns, whereas, secure counter-based schemes require impractical overheads of hundreds or thousands of entries per bank. The goal of our paper is to develop an ultra-low-cost secure in-DRAM tracker. Our solution is based on a simple observation: If only one row can be mitigated at refresh, we should ideally need to track only one row. We propose a Minimalist In-DRAM Tracker (MINT), which provides secure mitigation with just a single entry. Unlike prior trackers that decide the row to be mitigated based on the past behavior (select based on activation counts) or solely based on the current activation (select with some probability), MINT decides which row in the future will get mitigated. At each refresh, MINT probabilistically decides which activation in the upcoming interval will be selected for mitigation at the next refresh. MINT provides guaranteed protection against classic single and double-sided attacks. We also derive the minimum RH threshold (TRH*) tolerated by MINT across all patterns. MINT has a TRH* of 1482, which can be lowered to 356 with RFM. The TRH* of MINT is lower than a prior counter-based design with 677 entries per bank, and is within 2x of the TRH* of an idealized design that stores one-counter-per-row. We also analyze the impact of refresh postponement on the TRH* of low-cost in-DRAM trackers, and propose an efficient solution to make such trackers compatible with refresh postponement.",
+      "url": "https://doi.org/10.1109/micro61859.2024.00071"
+    },
+    {
+      "id": "p001312",
+      "title": "Polymorphic Error Correction",
+      "authors": [
+        "Evgeny Manzhosov",
+        "Simha Sethumadhavan"
+      ],
+      "first_author_family": "Manzhosov",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001312",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "In this paper, we propose a new memory error correction scheme, Polymorphic ECC, based on a novel idea of redundancy polymorphism for error correction. With redundancy polymorphism, we can use the check bits, i.e., parity bits in traditional ECC, to correct errors from different fault models. For example, the error correction procedure will use the same redundancy value for single-bit errors, double-bit errors, ChipKill, and others. As a result, Polymorphic ECC corrects more errors than traditional codes, which typically target a single fault model or require multiple redundancies for multi-fault model support, leading to higher storage overheads. Our construction is very compact, allowing us to embed an inlined cryptographic message authentication code (MAC) with each cacheline, ensuring data integrity and near 100% error detection without needing any extra storage. The MAC, further permits iterative correction among the many supported fault models. In the paper, we show that the novel combination of redundancy polymorphism with iterative correction, corrects errors due to fault models not covered by traditional codes and guarantees data integrity with up to 60-bit MACs while using 64-byte cachelines and standard 40-bit DDR5 memory channels.",
+      "url": "https://doi.org/10.1109/micro61859.2024.00027"
+    },
+    {
+      "id": "p001311",
+      "title": "DelayAVF: Calculating Architectural Vulnerability Factors for Delay Faults",
+      "authors": [
+        "Peter W. Deutsch",
+        "Vincent Quentin Ulitzsch",
+        "Sudhanva Gurumurthi",
+        "Vilas Sridharan",
+        "Joel S. Emer",
+        "Mengjia Yan"
+      ],
+      "first_author_family": "Deutsch",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2024",
+      "year": 2024,
+      "date": "2024-11-02",
+      "sort_key": "2024-11-02-p001311",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Reliability is a key design consideration for modern microprocessors. A surge of reports from major cloud vendors describing new silent data corruption (SDC) behaviours at scale suggest a recent change in the nature of faults in the wild. Recent publications have suggested that one root cause of these SDCs may be small delay faults (SDFs) induced by marginal defects that increase a circuit's propagation time by a small (sub-cycle) delay. Reasoning about the effects of these faults early in the design of a processor is thus of increasing importance for reliability at-scale. Computer architects currently reason about the resilience of microarchitectures against particle strike induced faults using Architectural Vulnerability Factor (AVF) which describes the probability that a particle strike impacting a particular microar-chitectural structure results in a program-visible failure. In this paper, we develop an AVF-like metric to quantify a processor's vulnerability to SDFs. We conduct a systematic analysis of the potential impacts of SDFs and determine that particle strike AVF is insufficient to reason about SDFs. Considering SDFs requires additional reasoning about the timing characteristics of a circuit, the state element(s) that experience an error due to a fault, and whether the resulting state element errors cause a program-visible failure. In this paper we present DelayAVF, a metric that quantifies microarchitectural vulnerability to small delay faults. We develop a two-step methodology to analyze the DelayAVF of a hardware design. We then analyze the DelayAVF of an open-source RISC-V core, finding new architectural reliability insights that do not present themselves through traditional AVF analysis. Finally, we provide approximations for DelayAVF that allow for the reuse of particle strike AVF data (for instance, from existing fault injection studies).",
+      "url": "https://doi.org/10.1109/micro61859.2024.00026"
+    }
+  ]
+}
