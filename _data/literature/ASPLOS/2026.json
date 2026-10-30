@@ -1,0 +1,239 @@
+{
+  "venue": "ASPLOS",
+  "release": "2026",
+  "label": "ASPLOS 2026",
+  "papers": [
+    {
+      "id": "p001151",
+      "title": "Radshield: Software Radiation Protection for Commodity Hardware in Space",
+      "authors": [
+        "Haoda Wang",
+        "Steven Myint",
+        "Vandi Verma",
+        "Yonatan Winetraub",
+        "Junfeng Yang",
+        "Asaf Cidon"
+      ],
+      "first_author_family": "Wang",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2025-12-11",
+      "sort_key": "2026-12-11-p001151",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Exponentially-declining launch costs have led to an explosion of inexpensive satellites launched to space, often equipped with off-the-shelf chips. These chips, however, lack hardware radiation protection, leaving them vulnerable to space radiation. We thus design Radshield, a software system protecting against the two most ubiquitous and costly radiation fault scenarios: (a) radiation-induced short-circuits that lead to permanent hardware failure; and (b) radiation-induced transient charges that result in single-bit silent data corruption (SDC). Radshield counters these failure scenarios with two components. First, it uses a short-circuit detector that can detect tiny increases in the device's current draw by estimating the normal current draw when resource utilization is low. Second, it duplicates the execution of spacecraft workloads in a CPU and memory-efficient manner, and catches SDCs even when they affect the CPU's pipeline or cache. In our experiments, we show Radshield is very effective at preventing both errors, and is 1.4-35.5× more power-efficient than the state-of-the-art protection mechanisms in detecting SDC. Radshield is deployed on missions in low-earth orbit and in deep space.",
+      "url": "https://doi.org/10.1145/3760250.3762218"
+    },
+    {
+      "id": "p001291",
+      "title": "Triton-Sanitizer: A Fast and Device-Agnostic Memory Sanitizer for Triton with Rich Diagnostic Context",
+      "authors": [
+        "Hao Wu",
+        "Qidong Zhao",
+        "Songqing Chen",
+        "Yang Chen",
+        "Yueming Hao",
+        "Tony CW Liu",
+        "Sijia Chen",
+        "Adnan Aziz",
+        "Keren Zhou"
+      ],
+      "first_author_family": "Wu",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001291",
+      "publication": "published",
+      "categories": [
+        "workload"
+      ],
+      "abstract": "Memory access errors remain one of the most pervasive bugs in GPU programming. Existing GPU sanitizers such as compute-sanitizer detect memory access errors by instrumenting every memory instruction in low-level IRs or binaries, which imposes high overhead and provides minimal memory access error diagnostic context for fixing problems. We present Triton-Sanitizer, the first device-agnostic memory sanitizer designed for Triton, a domain-specific language for developing portable, efficient GPU kernels for deep learning workloads. Triton-Sanitizer leverages Triton's tile-oriented semantics to construct symbolic expressions for memory addresses and masks, verifies them with an SMT solver, and selectively falls back to eager simulation for indirect accesses. This hybrid analysis enables precise detection of memory access errors without false positives while avoiding the cost of per-access instrumentation. Beyond detection, Triton-Sanitizer generates rich diagnostic reports that attribute violations to the tensors nearest to the violated addresses, track the complete call path, and expose the symbolic operations responsible for incorrect addresses. Evaluated on seven widely used open-source repositories of Triton kernels, Triton-Sanitizer uncovered 24 previously unknown memory access errors, of which 8 have already been fixed and upstreamed by us. Compared to compute-sanitizer, Triton-Sanitizer achieves speedups ranging from 1.07× to 14.66×, with an average improvement of 1.62×, demonstrating its ability to enhance performance, precision, and usability in memory access error detection.",
+      "url": "https://doi.org/10.1145/3779212.3790241"
+    },
+    {
+      "id": "p001278",
+      "title": "STRAW: Stress-Aware WL-Based Read Disturbance Management for High-Density NAND Flash Memory",
+      "authors": [
+        "Myoungjun Chun",
+        "Jaeyong Lee",
+        "Inhyuk Choi",
+        "Jisung Park",
+        "Myungsuk Kim",
+        "Jihong Kim"
+      ],
+      "first_author_family": "Chun",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001278",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "While NAND flash memory has continuously increased its storage density over decades, this progress has exacerbated the read-disturbance problem. In this work, we identify two fundamental limitations of existing read-disturbance management techniques that trigger read reclaim (RR) at the block granularity: (i) they overlook the heterogeneous reliability impact of read disturbance across individual wordlines (WLs), leading to unnecessary RR in many cases; and (ii) they address read disturbance only after disturbance-induced errors have already accumulated, which forces substantial RR-induced copy overheads in read-disturbance-prone modern NAND flash memory. To address these limitations, we propose STRAW (STRess-Aware Wordline-based read-disturbance management), a new technique that minimizes RR overheads through two key ideas: (i) stress-aware WL-based read reclaim, which monitors the accumulated read-disturbance effect on each WL and reclaims only heavily disturbed WLs, and (ii) stress-reduced read, which mitigates disturbance on valid WLs during each read operation by scaling pass-through voltages based on WL validity. Our experimental results using a modern SSD emulator show that STRAW reduces RR-induced page-copy overhead by 88.6% on average compared with the state-of-the-art technique.",
+      "url": "https://doi.org/10.1145/3779212.3790228"
+    },
+    {
+      "id": "p001267",
+      "title": "SEVI: Silent Data Corruption of Vector Instructions in Hyper-Scale Datacenters",
+      "authors": [
+        "Yixuan Mei",
+        "Shreya Varshini",
+        "Harish Dixit",
+        "Sriram Sankar",
+        "K. V. Rashmi"
+      ],
+      "first_author_family": "Mei",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001267",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Silent Data Corruption (SDC) poses a reliability threat in modern datacenters. These insidious errors evade detections and propagate incorrect results throughout the system. Companies including Google, Meta, and Alibaba have reported SDC incidents affecting their production. In this paper, we present the first comprehensive instruction- and application-level analysis of vector instruction SDCs in hyper-scale datacenters using a two-stage approach. We perform over 78 trillion test rounds in more than 14 billion CPU seconds. Our observations reveal undocumented SDC patterns that provide insights into possible underlying causes and inspire new mitigation strategies. Based on these findings, we propose a low-overhead SDC detection mechanism leveraging in-application algorithm-based fault tolerance. Our method achieves 88% to 100% SDC machine detection rate with a time overhead of only 1.35% even for modestly sized inputs.",
+      "url": "https://doi.org/10.1145/3779212.3790217"
+    },
+    {
+      "id": "p001263",
+      "title": "RowArmor: Efficient and Comprehensive Protection Against DRAM Disturbance Attacks",
+      "authors": [
+        "Minbok Wi",
+        "Yoonyul Yoo",
+        "Yoojin Kim",
+        "Jaeho Shin",
+        "Jumin Kim",
+        "Yesin Ryu",
+        "Saeid Gorgin",
+        "Jung Ho Ahn",
+        "Jungrae Kim"
+      ],
+      "first_author_family": "Wi",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001263",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Shrinking process technologies have made DRAM increasingly vulnerable to disturbance attacks, such as RowHammer, which can compromise data integrity or induce a Denial-of-Service (DoS) state. Existing solutions focus on preventing errors through activation monitoring and extra refreshes, but they often incur substantial performance overhead and can unintentionally exacerbate DoS risks. This paper introduces RowArmor, a novel defense mechanism that addresses both data corruption and DoS attacks. RowArmor adopts a reactive approach, correcting disturbance errors as they occur via address scrambling and enhanced error correcting codes. This strategy avoids the high costs of preventive methods while addressing diverse attack patterns, including RowPress. Our evaluation demonstrates that RowArmor effectively defends against data corruption and DoS attacks with a negligible performance overhead of up to 0.7%.",
+      "url": "https://doi.org/10.1145/3779212.3790213"
+    },
+    {
+      "id": "p001254",
+      "title": "PrioriFI: More Informed Fault Injection for Edge Neural Networks",
+      "authors": [
+        "Olivia Weng",
+        "Andres Meza",
+        "Nhan Tran",
+        "Ryan Kastner"
+      ],
+      "first_author_family": "Weng",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001254",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "As neural networks (NNs) are increasingly used to provide edge intelligence, there is a growing need to make the edge devices that run them robust to faults. Edge devices must mitigate the resulting hardware failures while maintaining strict constraints on power, energy, latency, throughput, memory size, and computational resources. Edge NNs require fundamental changes in model architecture, e.g., quantization and fewer, smaller layers. PrioriFI is a more informed fault injection (FI) algorithm that evaluates edge NN robustness by ranking NN bits based on their fault sensitivity. PrioriFI prioritizes finding highly fault-sensitive bits, that is, the bits most critical to an NN's correctness, first. To accomplish this, PrioriFI uses the Hessian for the initial parameter ranking. Then, during an FI campaign, PrioriFI uses the information gained from past FIs as a heuristic so that future FIs target the bits likely to be the next most sensitive. With PrioriFI, designers can quickly evaluate different NNs and better co-design fault-tolerant edge NN systems.",
+      "url": "https://doi.org/10.1145/3779212.3790204"
+    },
+    {
+      "id": "p001213",
+      "title": "Fine-grained and Non-intrusive LLM Training Monitoring via Microsecond-level Traffic Measurement",
+      "authors": [
+        "Yibo Xiao",
+        "Hao Zheng",
+        "Haifeng Sun",
+        "Qingkai Meng",
+        "Jiong Duan",
+        "Xiaohe Hu",
+        "Rong Gu",
+        "Guihai Chen",
+        "Chen Tian"
+      ],
+      "first_author_family": "Xiao",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001213",
+      "publication": "published",
+      "categories": [
+        "cluster"
+      ],
+      "abstract": "Large language model (LLM) training is prone to anomalies due to its long duration and large scale, which can lead to significant performance degradation or even training crashes. Due to the synchronization nature of LLM training, anomalies exhibit the cascading effect, making their diagnosis challenging. Existing approaches rely on collecting communication operator information via code instrumentation, which yields only coarse-grained monitoring data and requires modifications to training code or communication libraries. We propose Pulse, a fine-grained, non-intrusive, and easy-to-deploy monitoring system. Our key idea is to enable fine-grained monitoring via traffic measurement. Pulse conducts microsecond-level RDMA traffic measurement on NICs, and transforms flow-level measurements into communication operator measurements, thereby enabling fine-grained and non-intrusive monitoring. We deploy Pulse on a testbed with 64 H200 GPUs and evaluate its anomaly localization capability under common failure scenarios. Pulse achieves machine-level localization in 10 out of 12 scenarios, while existing methods succeed in only 4 and even misdiagnose 2 of the remaining scenarios. Additionally, Pulse achieves over 90% precision and 100% recall, supports up to 2000 concurrent RDMA flow measurements per NIC, and imposes negligible overhead on training performance, making it a practical solution for real-world LLM training environments.",
+      "url": "https://doi.org/10.1145/3779212.3790163"
+    },
+    {
+      "id": "p001197",
+      "title": "CREATE: <u>C</u> ross-Layer Resilience Characterization and Optimization for Efficient yet <u>R</u> eliable <u>E</u> mbodied <u>A</u> I Sys <u>te</u> ms",
+      "authors": [
+        "Tong Xie",
+        "Yijiahao Qi",
+        "Jinqi Wen",
+        "Zishen Wan",
+        "Yanchi Dong",
+        "Zihao Wang",
+        "Shaofei Cai",
+        "Yitao Liang",
+        "Tianyu Jia",
+        "Yuan Wang",
+        "Runsheng Wang",
+        "Meng Li"
+      ],
+      "first_author_family": "Xie",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001197",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Embodied Artificial Intelligence (AI) has recently attracted significant attention as it bridges AI with the physical world. Modern embodied AI systems often combine a Large Language Model (LLM)-based planner for high-level task planning and a reinforcement learning (RL)-based controller for low-level action generation, enabling embodied agents to tackle complex tasks in real-world environments. However, deploying embodied agents remains challenging due to their high computation requirements, especially for battery-powered local devices. Although techniques like lowering operating voltage can improve energy efficiency, they can introduce bit errors and result in task failures. In this work, we propose CREATE, a general design principle that leverages heterogeneous resilience at different layers for synergistic energy-reliability co-optimization. For the first time, we conduct a comprehensive error injection study on modern embodied AI systems and observe an inherent but heterogeneous fault tolerance. Building upon these insights, we develop an anomaly detection and clearance mechanism at the circuit level to eliminate outlier errors. At the model level, we propose a weight-rotation-enhanced planning algorithm to improve the fault tolerance of the LLM-based planner. Furthermore, we introduce an application-level technique, autonomy-adaptive voltage scaling, to dynamically adjust the operating voltage of the controllers. The voltage scaling circuit is co-designed to enable online voltage adjustment. Extensive experiments demonstrate that without compromising task quality, CREATE achieves 40.6% computational energy savings on average over nominal-voltage baselines and 35.0% over prior-art techniques. This further leads to 29.5% to 37.3% chip-level energy savings and approximately a 15% to 30% improvement in battery life.",
+      "url": "https://doi.org/10.1145/3779212.3790147"
+    },
+    {
+      "id": "p001176",
+      "title": "APT: Securing Against DRAM Read Disturbance via Adaptive Probabilistic In-DRAM Trackers",
+      "authors": [
+        "Runjin Wu",
+        "Meng Zhang",
+        "You Zhou",
+        "Changsheng Xie",
+        "Fei Wu"
+      ],
+      "first_author_family": "Wu",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "sort_key": "2026-03-22-p001176",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "With exacerbated DRAM read disturbance, transparent in-DRAM defenses require space (to track the aggressor rows) and time (to perform more mitigations). To reduce storage overhead, recent works have developed probabilistic row-sampling techniques with several entries. To address the time issue, these techniques employ Refresh Management (RFM) commands introduced in DDR5. However, probabilistic defenses with RFM face two critical challenges: (i) fixed-probability sampling under dynamic activation patterns can cause row-sampling misses, allowing attacks to evade mitigation, and (ii) RFM causes timing variations that can be exploited for side and covert channels to leak sensitive information. The goal of this paper is to design a low-cost and secure in-DRAM defense that overcomes these challenges.",
+      "url": "https://doi.org/10.1145/3779212.3790126"
+    }
+  ]
+}
