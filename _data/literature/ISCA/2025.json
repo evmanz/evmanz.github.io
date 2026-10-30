@@ -1,0 +1,98 @@
+{
+  "venue": "ISCA",
+  "release": "2025",
+  "label": "ISCA 2025",
+  "papers": [
+    {
+      "id": "p000497",
+      "title": "DREAM: Enabling Low-Overhead Rowhammer Mitigation via Directed Refresh Management",
+      "authors": [
+        "Hritvik Taneja",
+        "Moin Qureshi"
+      ],
+      "first_author_family": "Taneja",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2025",
+      "year": 2025,
+      "date": "2025-06-20",
+      "sort_key": "2025-06-20-p000497",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "This paper focuses on Memory-Controller (MC) side Rowhammer mitigation.MC-side mitigation consists of two parts: First, a tracker to identify the aggressor rows.Second, a command to let the MC inform the DRAM chip to perform victim-refresh for the specified aggressor row.To facilitate this, prior works assumed a per-bank Nearby Row Refresh (NRR) command.However, JEDEC standards did not support NRR.Instead, JEDEC introduced Directed Refresh Management (DRFM), which can simultaneously perform mitigations for one row each in 8 (DRFMsb) or 32 (DRFMab) banks.As DRFM stalls 8-32 banks, it incurs high overheads.For example, at a threshold of 2K, PARA incurs a slowdown of 3.9% with NRR, 12.7% with DRFMsb, and 49% with DRFMab.Although counter-based trackers can avoid these slowdowns, they require significant storage.The goal of our paper is to reduce the performance and storage overheads of MC-based mitigations by using properties of DRFM.Our paper proposes DREAM, DRFM-Aware Rowhammer Mitigation.We propose two variants of DREAM.Our first design, DREAM-R, reduces the performance overhead of randomized trackers by increasing the time between sampling the row and issuing a DRFM.The delay allows other banks the time to sample their own rows, thereby increasing the number of rows mitigated under a single DRFM.DREAM-R reduces the average performance overhead of PARA from 12.7% (DRFMsb) to 4.24% and MINT from 15.9% (DRFMsb) to 2.1%.We bound the impact of delayed DRFM on the tolerated Rowhammer threshold.Our second design DREAM-C, reduces the storage for counter-based trackers by leveraging the fact that DRFM can concurrently mitigate several rows.DREAM-C forms a gang containing 32-256 rows, randomly selected equally from all the 32 banks, and allocates a single counter for the entire gang.DREAM-C reduces the storage required at a threshold of 500 to only 1KB/bank, which is 8x lower than Graphene while avoiding the complexity of CAM lookups and incurring negligible slowdown.We also show that DREAM compares favorably to PRAC. CCS Concepts• Security and privacy → Security in hardware.",
+      "url": "https://doi.org/10.1145/3695053.3731117"
+    },
+    {
+      "id": "p000471",
+      "title": "PuDHammer: Experimental Analysis of Read Disturbance Effects of Processing-using-DRAM in Real DRAM Chips",
+      "authors": [
+        "Ismail Emir Yuksel",
+        "Akash Sood",
+        "Ataberk Olgun",
+        "Oğuzhan Canpolat",
+        "Haocong Luo",
+        "Nisa Bostanci",
+        "Mohammad Sadrosadati",
+        "Giray Yaglikci",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Yuksel",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2025",
+      "year": 2025,
+      "date": "2025-06-20",
+      "sort_key": "2025-06-20-p000471",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Processing-using-DRAM (PuD) is a promising paradigm for alleviating the data movement bottleneck using a DRAM array's massive internal parallelism and bandwidth to execute very wide dataparallel operations.Performing a PuD operation involves activating multiple DRAM rows in quick succession or simultaneously, i.e., multiple-row activation.Multiple-row activation is fundamentally different from conventional memory access patterns that activate one DRAM row at a time.However, repeatedly activating even one DRAM row (e.g., RowHammer) can induce bitflips in unaccessed DRAM rows because modern DRAM is subject to read disturbance, a worsening safety, security, and reliability issue.Unfortunately, no prior work investigates the effects of multiple-row activation, as commonly used by PuD operations, on DRAM read disturbance.In this paper, we present the first characterization study of read disturbance effects of multiple-row activation-based PuD (which we call PuDHammer) using 316 real DDR4 DRAM chips from four major DRAM manufacturers.Our detailed characterization results covering various operational conditions and parameters (i.e., temperature, data patterns, access patterns, timing parameters, and spatial variation) show that 1) PuDHammer significantly exacerbates the read disturbance vulnerability, causing up to 158.58× reduction in the minimum hammer count required to induce the first bitflip (𝐻𝐶 𝑓 𝑖𝑟𝑠𝑡 ), compared to RowHammer, 2) PuDHammer is affected by various operational conditions and parameters, 3) combining RowHammer with PuDHammer is more effective than using",
+      "url": "https://doi.org/10.1145/3695053.3731030"
+    },
+    {
+      "id": "p000457",
+      "title": "When Mitigations Backfire: Timing Channel Attacks and Defense for PRAC-Based RowHammer Mitigations",
+      "authors": [
+        "Jeonghyun Woo",
+        "Joyce Qu",
+        "Gururaj Saileshwar",
+        "Prashant Jayaprakash Nair"
+      ],
+      "first_author_family": "Woo",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2025",
+      "year": 2025,
+      "date": "2025-06-20",
+      "sort_key": "2025-06-20-p000457",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Per Row Activation Counting (PRAC) has emerged as a robust framework for mitigating RowHammer (RH) vulnerabilities in modern DRAM systems.However, we uncover a critical vulnerability: a timing channel introduced by the Alert Back-Off (ABO) protocol and Refresh Management (RFM) commands.We present PRACLeak, a novel attack that exploits these timing differences to leak sensitive information, such as secret keys from vulnerable AES implementations, by monitoring memory access latencies.To counter this, we propose Timing-Safe PRAC (TPRAC), a defense that eliminates PRAC-induced timing channels without compromising RH mitigation efficacy.TPRAC uses Timing-Based RFMs, issued periodically and independent of memory activity.It requires only a single-entry in-DRAM mitigation queue per DRAM bank and is compatible with existing DRAM standards.Our evaluations demonstrate that TPRAC closes timing channels while incurring only 3.4% performance overhead at the RH threshold of 1024. CCS Concepts• Security and privacy → Security in hardware.",
+      "url": "https://doi.org/10.1145/3695053.3731007"
+    },
+    {
+      "id": "p000451",
+      "title": "MoPAC: Efficiently Mitigating Rowhammer with Probabilistic Activation Counting",
+      "authors": [
+        "Suhas Vittal",
+        "Salman Qazi",
+        "Poulami Das",
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Vittal",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2025",
+      "year": 2025,
+      "date": "2025-06-20",
+      "sort_key": "2025-06-20-p000451",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Rowhammer has worsened over the last decade.Existing in-DRAM solutions, such as TRR, were broken with simple patterns.In response, the recent DDR5 JEDEC standards modify the DRAM array to enable Per-Row Activation Counters (PRAC) for tracking aggressor rows.They also extend the DRAM timings to support the operations required to update the PRAC counters.Unfortunately, the increased memory timings cause significant performance overheads (on average 10%) even for benign applications and even at current Rowhammer thresholds.The goal of this paper is to minimize the slowdown of PRAC while retaining the security benefits of PRAC.This paper proposes Mitigating Rowhammer with Probabilistic Activation Counts (MoPAC), which reduces the slowdown of updating the PRAC counters by performing the updates probabilistically, thereby incurring the latency overhead of counter updates for only a small subset of activations.To ensure security in the presence of probabilistic counters, MOPAC adjusts the threshold at which the row undergoes mitigation.We propose two variants of MoPAC: MoPAC-C (Memory-Controller Side) and MoPAC-D (DRAM Side).MoPAC-C relies on having two types of precharge commands: one that incurs normal latency and does not do counter updates, and the other that incurs higher latency and performs counter updates.MoPAC-C probabilistically chooses when the longer precharge must be used to perform update of the PRAC counter.MoPAC-D is a completely in-DRAM solution that probabilistically selects which activations will be selected for performing counter updates and obtains the time required for counter-updates using ALERT or REF.Our evaluations show that, for a Rowhammer threshold of 500 (10× lower than current thresholds), MoPAC-C and MoPAC-D incur an average slowdown of only 1.7% and 0.7%, much less than the 10% incurred by PRAC.MoPAC removes one of the major obstacles to the commercial adoption of PRAC.",
+      "url": "https://doi.org/10.1145/3695053.3730997"
+    }
+  ]
+}
