@@ -1,0 +1,160 @@
+{
+  "venue": "ASPLOS",
+  "release": "2024",
+  "label": "ASPLOS 2024",
+  "papers": [
+    {
+      "id": "p000949",
+      "title": "Proactive Runtime Detection of Aging-Related Silent Data Corruptions: A Bottom-Up Approach",
+      "authors": [
+        "Jiacheng Ma",
+        "Majd Ganaiem",
+        "Madeline Burbage",
+        "Theo Gregersen",
+        "Rachel McAmis",
+        "Freddy Gabbay",
+        "Baris Kasikci"
+      ],
+      "first_author_family": "Ma",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000949",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Recent advancements in semiconductor process technologies have unveiled the susceptibility of hardware circuits to reliability issues, especially those related to transistor aging. Transistor aging gradually degrades gate performance, eventually causing hardware to behave incorrectly. Such misbehaving hardware can result in silent data corruptions (SDCs) in software---a type of failure that comes without logs or exceptions, but causes miscomputing instructions, bitflips, and broken cache coherency. Alas, while design efforts can be made to mitigate transistor aging, complete elimination of this problem during design and fabrication cannot be guaranteed. This emerging challenge calls for a mechanism that not only detects potentially aged hardware in the field, but also triggers software mitigations at application runtime.",
+      "url": "https://doi.org/10.1145/3622781.3674182"
+    },
+    {
+      "id": "p000909",
+      "title": "TAROT: A CXL SmartNIC-Based Defense Against Multi-bit Errors by Row-Hammer Attacks",
+      "authors": [
+        "Chihun Song",
+        "Michael Jaemin Kim",
+        "Tianchen Wang",
+        "Houxiang Ji",
+        "Jinghan Huang",
+        "Ipoom Jeong",
+        "Jaehyun Park",
+        "Hwayong Nam",
+        "Minbok Wi",
+        "Jung Ho Ahn",
+        "Nam Sung Kim"
+      ],
+      "first_author_family": "Song",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000909",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Row Hammer (RH) has been demonstrated as a security vulnerability in modern systems. Although commodity CPUs can handle RH-induced single-bit errors in DRAM through ECC, RH can still give rise to multi-bit uncorrectable errors (UEs) and crash the systems. Meanwhile, recent work has indicated that the DRAM cells vulnerable to RH are determined by manufacturing imperfections and resulting defects. Taking one step further from the recent work, we first conduct RH experiments on contemporary DRAM modules for 3 weeks. This demonstrates that RH-induced UEs occur only at specific DRAM addresses (RH-UE-vulnerable addresses) and the percentage of such addresses is small in these DRAM modules. Second, to protect the systems from RH-induced UEs, we propose two RH defense solutions: H- and S-TAROT (TArgeted ROw-Hammer Therapy). H-TAROT is a software-based solution running on the host CPU. It obtains RH-UE-vulnerable addresses during the system boot and then periodically accesses such addresses before UEs may occur. Since it accesses only a small percentage of addresses, it does not incur a notable performance penalty for throughput applications (e.g., a 1.5% increase in execution time of the SPECrate 2017 benchmark suite running on a system even with 128GB of DRAM). Yet, it imposes a significant performance penalty on latency-sensitive applications (e.g., a 28.2% increase in tail latency of Redis). To minimize the performance penalty, for a system with a SmartNIC (SNIC), S-TAROT offloads H-TAROT from the host CPU to the SNIC CPU. Our experiment shows that S-TAROT increases the execution time and tail latency of the SPECrate 2017 benchmark suite and Redis by only 0.1% and 1.0%, respectively.",
+      "url": "https://doi.org/10.1145/3620666.3651325"
+    },
+    {
+      "id": "p000887",
+      "title": "Dr. DNA: Combating Silent Data Corruptions in Deep Learning using Distribution of Neuron Activations",
+      "authors": [
+        "Dongning Ma",
+        "Fred Lin",
+        "Alban Desmaison",
+        "Joel Coburn",
+        "Daniel Moore",
+        "Sriram Sankar",
+        "Xun Jiao"
+      ],
+      "first_author_family": "Ma",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000887",
+      "publication": "published",
+      "categories": [
+        "workload"
+      ],
+      "abstract": "Deep neural networks (DNNs) have been widely-adopted in various safety-critical applications such as computer vision and autonomous driving. However, as technology scales and applications diversify, coupled with the increasing heterogeneity of underlying hardware architectures, silent data corruption (SDC) has been emerging as a pronouncing threat to the reliability of DNNs. Recent reports from industry hyperscalars underscore the difficulty in addressing SDC due to their \"stealthy\" nature and elusive manifestation. In this paper, we propose Dr. DNA, a novel approach to enhance the reliability of DNN systems by detecting and mitigating SDCs. Specifically, we formulate and extract a set of unique SDC signatures from the Distribution of Neuron Activations (DNA), based on which we propose early-stage detection and mitigation of SDCs during DNN inference. We perform an extensive evaluation across 3 vision tasks, 5 different datasets, and 10 different models, under 4 different error models. Results show that Dr. DNA achieves 100% SDC detection rate for most cases, 95% detection rate on average and >90% detection rate across all cases, representing 20% - 70% improvement over baselines. Dr. DNA can also mitigate the impact of SDCs by effectively recovering DNN model performance with <1% memory overhead and <2.5% latency overhead.",
+      "url": "https://doi.org/10.1145/3620666.3651349"
+    },
+    {
+      "id": "p000885",
+      "title": "AERO: Adaptive Erase Operation for Improving Lifetime and Performance of Modern NAND Flash-Based SSDs",
+      "authors": [
+        "Sungjun Cho",
+        "Beomjun Kim",
+        "Hyunuk Cho",
+        "Gyeongseob Seo",
+        "Onur Mutlu",
+        "Myungsuk Kim",
+        "Jisung Park"
+      ],
+      "first_author_family": "Cho",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000885",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "This work investigates a new erase scheme in NAND flash memory to improve the lifetime and performance of modern solid-state drives (SSDs). In NAND flash memory, an erase operation applies a high voltage (e.g., > 20 V) to flash cells for a long time (e.g., > 3.5 ms), which degrades cell endurance and potentially delays user I/O requests. While a large body of prior work has proposed various techniques to mitigate the negative impact of erase operations, no work has yet investigated how erase latency should be set to fully exploit the potential of NAND flash memory; most existing techniques use a fixed latency for every erase operation which is set to cover the worst-case operating conditions. To address this, we propose Aero (Adaptive ERase Operation), a new erase scheme that dynamically adjusts erase latency to be just long enough for reliably erasing target cells, depending on the cells' current erase characteristics. Aero accurately predicts such near-optimal erase latency based on the number of fail bits during an erase operation. To maximize its benefits, we further optimize Aero in two aspects. First, at the beginning of an erase operation, Aero attempts to erase the cells for a short time (e.g., 1 ms), which enables Aero to always obtain the number of fail bits necessary to accurately predict the near-optimal erase latency. Second, Aero aggressively yet safely reduces erase latency by leveraging a large reliability margin present in modern SSDs. We demonstrate the feasibility and reliability of Aero using 160 real 3D NAND flash chips, showing that it enhances SSD lifetime over the conventional erase scheme by 43% without change to existing NAND flash chips. Our system-level evaluation using eleven real-world workloads shows that an AERO-enabled SSD reduces read tail latency by 34% on average over a state-of-the-art technique.",
+      "url": "https://doi.org/10.1145/3620666.3651341"
+    },
+    {
+      "id": "p000872",
+      "title": "MulBERRY: Enabling Bit-Error Robustness for Energy-Efficient Multi-Agent Autonomous Systems",
+      "authors": [
+        "Zishen Wan",
+        "Nandhini Chandramoorthy",
+        "Karthik Swaminathan",
+        "Pin-Yu Chen",
+        "Kshitij Bhardwaj",
+        "Vijay Janapa Reddi",
+        "Arijit Raychowdhury"
+      ],
+      "first_author_family": "Wan",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000872",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "The adoption of autonomous swarms, consisting of a multitude of unmanned aerial vehicles (UAVs), operating in a collaborative manner, has become prevalent in mainstream application domains for both military and civilian purposes. These swarms are expected to collaboratively carry out navigation tasks and employ complex reinforcement learning (RL) models within the stringent onboard size, weight, and power constraints. While techniques such as reducing onboard operating voltage can improve the energy efficiency of both computation and flight missions, they can lead to on-chip bit failures that are detrimental to mission safety and performance.",
+      "url": "https://doi.org/10.1145/3620665.3640420"
+    },
+    {
+      "id": "p000827",
+      "title": "Rubix: Reducing the Overhead of Secure Rowhammer Mitigations via Randomized Line-to-Row Mapping",
+      "authors": [
+        "Anish Saxena",
+        "Saurav Mathur",
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Saxena",
+      "venue": "ASPLOS",
+      "venue_label": "ASPLOS 2024",
+      "year": 2024,
+      "date": "2024-04-27",
+      "sort_key": "2024-04-27-p000827",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Modern systems mitigate Rowhammer using victim refresh, which refreshes neighbours of an aggressor row when it encounters a specified number of activations. Unfortunately, complex attack patterns like Half-Double break victim-refresh, rendering current systems vulnerable. Instead, recently proposed secure Rowhammer mitigations perform mitigative action on the aggressor rather than the victims. Such schemes employ mitigative actions such as row-migration or access-control and include AQUA, SRS, and Blockhammer. While these schemes incur only modest slowdowns at Rowhammer thresholds of few thousand, they incur prohibitive slowdowns (15%-600%) for lower thresholds that are likely in the near future. The goal of our paper is to make secure Rowhammer mitigations practical at such low thresholds.",
+      "url": "https://doi.org/10.1145/3620665.3640404"
+    }
+  ]
+}
