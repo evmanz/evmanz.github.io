@@ -4,6 +4,29 @@
   "label": "ISCA 2026",
   "papers": [
     {
+      "id": "p000747",
+      "title": "Cerberus: Cross-Layer ECC Co-Design for Robust and Efficient Memory Protection",
+      "authors": [
+        "Junhwan Kim",
+        "Seunghyun Kim",
+        "Yesin Ryu",
+        "Saeid Gorgin",
+        "Jungrae Kim"
+      ],
+      "first_author_family": "Kim",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000747",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "As DRAM scales to higher density and I/O speeds, ensuring data correctness becomes increasingly difficult. Industry has responded with a three-layer stack-on-die ECC (O-ECC), link ECC (L-ECC), and system ECC (S-ECC)-but these layers have evolved independently, often duplicating redundancy, leaving coverage gaps, and occasionally interfering. We propose Cerberus, a cross-layer ECC co-design that unifies protection across device, link, and system while preserving each layer's native role. At its core is an Encode-Once, Decode-Many (EODM) architecture: the controller performs a single encoding whose redundancy is reused by L-ECC for immediate write-path detection/retry, by O-ECC for in-device repair on reads, and by S-ECC for strong end-to-end recovery. Cerberus jointly designs complementary parity/syndrome structures, orders decoders and allocates the correction budget to prevent miscorrection amplification, and enables selective correction under tight redundancy constraints. Our evaluations show improved resilience to clustered and peripheral faults while reducing redundancy overhead, underscoring the importance of coordinated crosslayer protection for next-generation memory systems, such as custom HBMs.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00020"
+    },
+    {
       "id": "p000734",
       "title": "From Lab to Fleet: Building and Deploying a Practical Rowhammer Defense in Cloud SoCs",
       "authors": [
@@ -24,34 +47,34 @@
       "sort_key": "2026-06-00-p000734",
       "publication": "published",
       "categories": [
-        "cluster",
         "hardware"
       ],
       "abstract": "Rowhammer attacks pose a significant threat to modern DRAM, with potentially serious security consequences for a cloud vendor, such as data corruption or infrastructure outages. Existing defenses fail to satisfy key industry requirements, including minimal overhead in the absence of attacks, predictable performance when under attack, system liveness, low hardware cost, adaptability to diverse hardware configurations, and tunable security guarantees. This paper introduces Sigries, a hybrid Rowhammer defense implemented by Microsoft in the Azure Cobalt 200 SoC, combining the Misra-Gries algorithm for efficient row tracking with a fallback row-sampling mode for robustness under all attack scenarios. Sigries's design meets all our performance goals and offers configurable security guarantees allowing a cloud vendor to assess the security risks to its fleet. Our trace-driven evaluation shows that Sigries maintains minimal DRAM bandwidth overhead while keeping performance overhead consistently low. This work represents the first detailed description of a fully implemented, industry-grade Rowhammer defense and provides insights to inform research prototypes about real-world requirements.",
       "url": "https://doi.org/10.1109/isca66397.2026.00062"
     },
     {
-      "id": "p000716",
-      "title": "Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference",
+      "id": "p000721",
+      "title": "PVAC: A Rowhammer Mitigation Architecture Exploiting Per-Victim-Row Counting",
       "authors": [
-        "Junwei Cui",
-        "Le Qin",
-        "Weilin Cai",
-        "Jiayi Huang"
+        "Jumin Kim",
+        "Seungmin Baek",
+        "Hwayong Nam",
+        "Minbok Wi",
+        "Nam Sung Kim",
+        "Jung Ho Ahn"
       ],
-      "first_author_family": "Cui",
+      "first_author_family": "Kim",
       "venue": "ISCA",
       "venue_label": "ISCA 2026",
       "year": 2026,
       "date": "2026-06",
-      "sort_key": "2026-06-00-p000716",
+      "sort_key": "2026-06-00-p000721",
       "publication": "published",
       "categories": [
-        "hardware",
-        "workload"
+        "hardware"
       ],
-      "abstract": "The accelerating scale of large language models (LLMs) has driven an unprecedented increase in computational and memory demands that outpace the capability of conventional systems. Wafer-scale integration, with its dense, low-latency mesh interconnects across tightly packed arrays of compute and memory dies, emerges as a promising paradigm for massive system scaling. However, existing LLM deployment strategies, largely optimized for switch-based distributed GPU systems, are mismatched with the asymmetric mesh topology and bandwidth heterogeneity across tiers of wafer-scale systems. The inherent complexity of wafer-scale systems also makes them highly susceptible to node and link failures arising from manufacturing defects or runtime degradation, making fault-tolerant communication essential for robust LLM inference. To address these challenges, we introduce BusyBarn, a comprehensive framework that provides mapping and communication optimizations for efficient, fault-tolerant LLM inference on wafer-scale systems. BusyBarn introduces two key techniques: a hierarchical mapping algorithm that exploits the structural symmetry between Transformer blocks and die arrays to jointly optimize inter-die and intra-die workload deployment; and the Balanced Allocation with Load and Distance awareness (BALD) communication algorithm, which manages irregular traffic and balances load via link allocation for point-to-point and multicast collective primitives. Crucially, BusyBarn seamlessly integrates fault tolerance into these optimizations. Evaluation demonstrates that BusyBarn achieves up to ${2. 5 5} \\times$ speedup in typical communication patterns and ${1. 0 8}-{2. 1 4} \\times$ end-to-end speedup for LLM inference compared to state-of-the-art methods.",
-      "url": "https://doi.org/10.1109/isca66397.2026.00076"
+      "abstract": "As DRAM scaling exacerbates RowHammer, DDR5 introduces per-row activation counting (PRAC) to track aggressor activity. However, PRAC indiscriminately increments counters on every activation-including benign refreshes-while relying solely on explicit RFM operations for resets. Consequently, counters saturate even in an idle bank, triggering cascading mitigations and degrading performance. This vulnerability arises from a fundamental mismatch: PRAC tracks the aggressor but aims to protect the victim. We present Per-Victim-row hAmmered Counting (PVAC), a victim-based counting mechanism that aligns the counter semantics with the physical disturbance mechanism of RowHammer. PVAC increments the counters of victim rows, resets the activated row, and naturally bounds counter values under normal refresh. To enable efficient victim-based updates, PVAC employs a dedicated counter subarray (CSA) that performs all counter resets and increments concurrently with normal accesses, without timing overhead. We further devise an energy-efficient CSA layout that minimizes refresh-induced counter accesses. Through victim-based counting, PVAC supports higher hammering tolerance than PRAC while maintaining the same worst-case safety guarantee. Across benign workloads and adversarial attack patterns, PVAC avoids spurious Alerts, eliminates PRAC timing penalties, and achieves higher performance and lower energy consumption than prior PRAC-based defenses.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00114"
     },
     {
       "id": "p000707",
@@ -104,36 +127,32 @@
       "url": "https://doi.org/10.1109/isca66397.2026.00040"
     },
     {
-      "id": "p000699",
-      "title": "Prometheus: Toward Resilient Data Centers through Optimized Cooling Infrastructure",
+      "id": "p000670",
+      "title": "ColumnKeeper: Efficient Solutions to the Columndisturb Vulnerability in Dram-Based Systems",
       "authors": [
-        "Sourav Patel",
-        "Pratyush Kumar",
-        "Youzhi Liang",
-        "Thomas Kowalski",
-        "Nick Care",
-        "Wenjie Dong",
-        "Greg Imwalle",
-        "Rita Lu",
-        "Jeremy Rice",
-        "Nick Saddock",
-        "Rick Vengalath",
-        "Urs Hölzle",
-        "Benjamin C. Lee",
-        "Parthasarathy Ranganathan"
+        "Andreas Kosmas Kakolyris",
+        "F. Nisa Bostancı",
+        "Ataberk Olgun",
+        "İsmail Emir Yüksel",
+        "Harsh Songara",
+        "Konstantinos Marios Sgouras",
+        "Umut Başer",
+        "Konstantinos Kanellopoulos",
+        "A. Giray Yağlıkçı",
+        "Onur Mutlu"
       ],
-      "first_author_family": "Patel",
+      "first_author_family": "Kakolyris",
       "venue": "ISCA",
       "venue_label": "ISCA 2026",
       "year": 2026,
       "date": "2026-06",
-      "sort_key": "2026-06-00-p000699",
+      "sort_key": "2026-06-00-p000670",
       "publication": "published",
       "categories": [
-        "cluster"
+        "hardware"
       ],
-      "abstract": "Data center design assumptions are increasingly at risk from severe weather events. The framework Prometheus forecasts future temperatures and guides infrastructure design on multiple timescales. Using machine learning on historical and simulated climate data, Prometheus indicates that data centers must increase cooling capacity by 11% on average and up to 48% at the sites most challenged. 30% of data centers lack sufficient load flexibility and 12% already face a high probability of exceeding their design temperatures and require upgrades.",
-      "url": "https://doi.org/10.1109/isca66397.2026.00083"
+      "abstract": "Modern DRAM chips are vulnerable to read disturbance phenomena such as RowHammer and RowPress, which induce bitflips in DRAM rows after accessing nearby rows a certain number of times (i.e., the read disturbance threshold). ColumnDisturb is a new and fundamentally different DRAM read disturbance phenomenon. Specifically, ColumnDisturb (i) disturbs DRAM columns instead of rows, and (ii) increases the number of affected DRAM cells from those that reside in only a few neighboring rows to all cells across three consecutive DRAM subarrays. We propose ColumnKeeper, the first set of ColumnDisturb mitigations that has two variants: ColumnKeeper-D (CK-D), a deterministic mitigation mechanism, and ColumnKeeper-P (CKP), a probabilistic one. The key idea of CK-D is to take advantage of DRAM's open-bitline architecture to provide deterministic security guarantees against ColumnDisturb with low performance and energy overheads. To achieve this, CK-D employs two counters per subarray to track the number of activations affecting the odd and even columns of the subarray, respectively. When either counter reaches a predetermined threshold, CK-D refreshes one row in the corresponding subarray. The key idea of CK-P is to refresh one row in three consecutive subarrays upon a row activation in the middle subarray. This occurs with a predetermined probability and provides configurable security guarantees at low area overhead. To identify which row to refresh in each subarray, both mechanisms maintain a table with one entry per subarray that always points to the next row to refresh within the subarray. Each time either mechanism refreshes a row, it increments the corresponding entry, thereby ensuring that all rows in the subarray are refreshed in a round-robin manner. Our comprehensive evaluation shows that both mechanisms prevent ColumnDisturb bitflips at low performance, energy, and area overheads. At the current experimentally-demonstrated ColumnDisturb threshold (1M), CK-D and CK-P incur very low average single-core performance overheads of 0.15% and 0.36%, respectively, compared to a system with no ColumnDisturb mitigation. For near-future thresholds (128K), these overheads rise to a still low average of 1.70% and 2.73%, respectively. Our experimental analysis shows that mitigating ColumnDisturb with low performance overheads at low thresholds (e.g., 16K) is still possible by either adopting smaller subarray sizes or enabling subarray-level parallelism. CK-D and CK-P can be implemented with low area overheads of $0.1 ~\\text{mm}^{2}$ and $0.03 ~\\text{mm}^{2}$, respectively. ColumnKeeper is freely available at github.com/CMU-SAFARI/ColumnKeeper.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00113"
     },
     {
       "id": "p000663",
