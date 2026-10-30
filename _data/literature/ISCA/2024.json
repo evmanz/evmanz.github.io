@@ -1,0 +1,80 @@
+{
+  "venue": "ISCA",
+  "release": "2024",
+  "label": "ISCA 2024",
+  "papers": [
+    {
+      "id": "p000399",
+      "title": "PrIDE: Achieving Secure Rowhammer Mitigation with Low-Cost In-DRAM Trackers",
+      "authors": [
+        "Aamer Jaleel",
+        "Gururaj Saileshwar",
+        "Stephen W. Keckler",
+        "Moinuddin Qureshi"
+      ],
+      "first_author_family": "Jaleel",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2024",
+      "year": 2024,
+      "date": "2024-06-29",
+      "sort_key": "2024-06-29-p000399",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Rowhammer-induced bit-flips are a threat to DRAM security. To mitigate Rowhammer, DDR4 devices employ TRR, an in-DRAM tracker, to identify aggressor rows. In-DRAM trackers tend to be severely resource-constrained (1-30 entries), which means they cannot reliably track all the aggressor rows and are bound to fail for some access patterns. Unfortunately, for existing in-DRAM trackers, it is difficult to a priori determine how often they will fail when subjected to the worst-case pattern. Unsurprisingly, all the current low-cost in-DRAM trackers have been broken with specific access patterns within a few minutes. While provably secure alternatives for in-DRAM tracking exist, they require thousands of tracking entries, making them unappealing for commercial adoption. The goal of our paper is to develop a low-cost in-DRAM tracker that is secure (guarantees a time-to-failure in the range of years) against all access patterns.We contend that the root cause of the vulnerability of current low-cost in-DRAM trackers stems from the use of activation-counters to direct policy decisions (e.g. which rows to insert, which to evict, and which to mitigate). Therefore, an attacker can perform frequent accesses to dummy rows to evade the mitigation of an aggressor row. The key insight of our paper is that to ensure security, the policy decisions of an in-DRAM tracker must not depend on the access pattern. To that end, we propose a secure and low-cost in-DRAM tracker called PrIDE, which consists of a FIFO buffer with probabilistic insertion. As the policy decisions of PrIDE do not depend on the access pattern, we develop a framework to calculate the time-to-failure. Our analysis with DDR5 shows that PrIDE (with 4 entries, 10byte storage) can tolerate Rowhammer thresholds of 1.9 K while guaranteeing per-bank time-to-failure of more than 10,000 years for all access patterns. We also co-design PrIDE with RFM to tolerate thresholds as low as 400 with only $1.6 \\%$ slowdown. To the best of our knowledge, PrIDE is the first low-cost in-DRAM tracker to achieve provably secure Rowhammer mitigation.",
+      "url": "https://doi.org/10.1109/isca59077.2024.00087"
+    },
+    {
+      "id": "p000396",
+      "title": "DRAMScope: Uncovering DRAM Microarchitecture and Characteristics by Issuing Memory Commands",
+      "authors": [
+        "Hwayong Nam",
+        "Seungmin Baek",
+        "Minbok Wi",
+        "Michael Jaemin Kim",
+        "Jaehyun Park",
+        "Chihun Song",
+        "Nam Sung Kim",
+        "Jung Ho Ahn"
+      ],
+      "first_author_family": "Nam",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2024",
+      "year": 2024,
+      "date": "2024-06-29",
+      "sort_key": "2024-06-29-p000396",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "The demand for precise information on DRAM microarchitectures and error characteristics has surged, driven by the need to explore processing in memory, enhance reliability, and mitigate security vulnerability. Nonetheless, DRAM manufacturers have disclosed only a limited amount of information, making it difficult to find specific information on their DRAM microarchitectures. This paper addresses this gap by presenting more rigorous findings on the microarchitectures of commodity DRAM chips and their impacts on the characteristics of activate-induced bitflips (AIBs), such as RowHammer and RowPress. The previous studies have also attempted to understand the DRAM microarchitectures and associated behaviors, but we have found some of their results to be misled by inaccurate address mapping and internal data swizzling, or lack of a deeper understanding of the modern DRAM cell structure. For accurate and efficient reverse-engineering, we use three tools: AIBs, retention time test, and RowCopy, which can be cross-validated. With these three tools, we first take a macroscopic view of modern DRAM chips to uncover the size, structure, and operation of their subarrays, memory array tiles (MATs), and rows. Then, we analyze AIB characteristics based on the microscopic view of the DRAM microarchitecture, such as 6F2cell layout, through which we rectify misunderstandings regarding AIBs and discover a new data pattern that accelerates AIBs. Lastly, based on our findings at both macroscopic and microscopic levels, we identify previously unknown AIB vulnerabilities and propose a simple yet effective protection solution.",
+      "url": "https://doi.org/10.1109/isca59077.2024.00083"
+    },
+    {
+      "id": "p000370",
+      "title": "Harpocrates: Breaking the Silence of CPU Faults through Hardware-in-the-Loop Program Generation",
+      "authors": [
+        "Nikos Karystinos",
+        "Odysseas Chatzopoulos",
+        "George-Marios Fragkoulis",
+        "George Papadimitriou",
+        "Dimitris Gizopoulos",
+        "Sudhanva Gurumurthi"
+      ],
+      "first_author_family": "Karystinos",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2024",
+      "year": 2024,
+      "date": "2024-06-29",
+      "sort_key": "2024-06-29-p000370",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "Several hyperscalers have recently disclosed the occurrence of Silent Data Corruptions (SDCs) in their systems fleets, sparking concerns about the severity of known and the existence of unidentified root causes of faults in CPUs. These incidents reveal that CPU chips have the potential to generate incorrect results for different tasks due to latent manufacturing defects, variability, marginalities, bugs, and aging. To tackle this problem, we present Harpocrates, an automated methodology for the generation of short, constrained-random functional test programs that maximize fault detection in target CPU structures and can be employed at different stages of system lifetime. Harpocrates stands out by adopting a hardware-modelin-the-loop approach, which iteratively refines the generated test programs using a detailed simulation-based microarchitecture engine. The engine models and grades for multiple hardware fault types that can lead to data corruptions during system operation. Harpocrates is versatile and can adapt to various program generators, ISAs, microarchitectures, and fault types. Our results on six important CPU hardware structures show that Harpocrates attains much shorter test generation times than hardware-agnostic publicly available frameworks and outperforms open-source test suites in terms of fault detection capability.",
+      "url": "https://doi.org/10.1109/isca59077.2024.00045"
+    }
+  ]
+}
