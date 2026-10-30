@@ -179,17 +179,7 @@
     side.append(venue, element('span', 'visually-hidden', 'Categories:'));
     const tags = element('ul', 'lw-tags');
     paper.categories.forEach((category) => {
-      const tag = element('button', `lw-tag lw-tag--${category} lw-paper-filter`, category);
-      tag.type = 'button';
-      tag.setAttribute('aria-label', `Filter by ${category}`);
-      tag.setAttribute('aria-pressed', String(selections.category.has(category)));
-      tag.addEventListener('click', () => {
-        toggle('category', category);
-        focusFilter('category', category);
-      });
-      const item = element('li');
-      item.append(tag);
-      tags.append(item);
+      tags.append(element('li', `lw-tag lw-tag--${category}`, category));
     });
     side.append(tags);
     const main = element('div', 'lw-main');

@@ -63,7 +63,6 @@ h1 { margin: 0 0 16px; font-size: 20px; font-weight: 400; }
 .paper-tags { display: flex; flex-wrap: wrap; flex-direction: column; gap: 5px; align-items: flex-start; }
 .paper-tag { font-size: 12px; padding: 0 5px; border: 1px solid transparent; border-radius: 2px; }
 .paper-tag--hardware { background: var(--ink); color: #fff; }
-.paper-tag--hardware:hover { background: #111; color: #fff; }
 .paper-tag--cluster { background: #ececec; }
 .paper-tag--workload { border-color: #999; color: #555; }
 .paper-main { min-width: 0; }

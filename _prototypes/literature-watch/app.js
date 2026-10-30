@@ -218,12 +218,7 @@
     side.append(venue);
     const tags = element('div', 'paper-tags');
     paper.categories.forEach((category) => {
-      const tag = element('button', `paper-tag paper-tag--${category}`, category);
-      tag.type = 'button';
-      tag.setAttribute('aria-label', `Filter by ${category}`);
-      tag.setAttribute('aria-pressed', String(sets.category.has(category)));
-      tag.addEventListener('click', () => toggle('category', category));
-      tags.append(tag);
+      tags.append(element('span', `paper-tag paper-tag--${category}`, category));
     });
     side.append(tags);
     if (paper.sample) side.append(element('span', 'sample-label', 'SAMPLE ENTRY'));
