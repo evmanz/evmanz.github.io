@@ -5,10 +5,9 @@ permalink: /literature/
 wide: true
 ---
 {%- comment -%}
-  Rendered from _data/literature/, which the paper-feed pipeline publishes as one
-  file per release: <VENUE>/<YEAR>.json for conferences, <VENUE>/<YEAR>/<MM>.json
-  for monthly venues such as CAL. Each file is {venue, release, label, papers}.
-  The loops below merge every release and sort newest first by sort_key.
+  The page and /assets/data/literature.json share the release-merging include.
+  Render the latest 50 papers here; JavaScript loads the full static catalog for
+  filtering and showing more. The initial list remains usable without scripts.
   Every field comes from third-party metadata, so each one goes through
   `escape` and none through `markdownify`.
   Authors: up to four are listed; longer lists show the first author's family
@@ -16,33 +15,62 @@ wide: true
   abstract panel. The family name comes from Crossref (first_author_family);
   if it is missing, the last word of the first author's name is used.
 {%- endcomment -%}
-{%- assign papers = "" | split: "" -%}
-{%- for venue in site.data.literature -%}
-  {%- for entry in venue[1] -%}
-    {%- assign node = entry[1] -%}
-    {%- if node.papers -%}
-      {%- assign papers = papers | concat: node.papers -%}
-    {%- else -%}
-      {%- for month in node -%}
-        {%- assign papers = papers | concat: month[1].papers -%}
-      {%- endfor -%}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endfor -%}
-{%- assign papers = papers | sort: "sort_key" | reverse -%}
+{%- include literature-papers.html -%}
 {%- assign max_authors = 4 -%}
-<div class="lw">
+{%- assign venues = papers | map: "venue" | uniq -%}
+<div class="lw" data-source="{{ '/assets/data/literature.json' | relative_url }}">
   <p class="lw-intro">Recent papers by other researchers on computing reliability, selected
   automatically from their abstracts. Inclusion is not an endorsement.</p>
 
   {%- if papers and papers.size > 0 %}
-  <ul class="lw-legend" aria-label="Categories">
+  <section id="lw-filters" class="lw-filters" aria-label="Filter papers" hidden>
+    <div class="lw-search-row">
+      <input id="lw-search" type="search" aria-label="Search papers by title, author, or abstract"
+        placeholder="Search papers by title, author, or abstract across {{ venues.size }} {% if venues.size == 1 %}venue{% else %}venues{% endif %}…" autocomplete="off">
+      <button type="button" id="lw-clear-search" class="lw-button" hidden>Clear search</button>
+    </div>
+    <div class="lw-filter-row">
+      <span id="lw-category-label" class="lw-filter-label">Category</span>
+      <div id="lw-category-filters" class="lw-button-row" role="group" aria-labelledby="lw-category-label"></div>
+    </div>
+    <div class="lw-filter-row">
+      <span id="lw-year-label" class="lw-filter-label">Year</span>
+      <div id="lw-year-filters" class="lw-button-row" role="group" aria-labelledby="lw-year-label"></div>
+    </div>
+    <div class="lw-filter-row">
+      <span id="lw-venue-label" class="lw-filter-label">Venue</span>
+      <div class="lw-venue-controls">
+        <div id="lw-venue-filters" class="lw-button-row" role="group" aria-labelledby="lw-venue-label"></div>
+        <button id="lw-browse-venues" class="lw-text-button" type="button" aria-expanded="false" aria-controls="lw-venue-browser">Browse all venues +</button>
+      </div>
+    </div>
+    <div id="lw-venue-browser" class="lw-venue-browser" hidden>
+      <label for="lw-venue-search">Find a venue</label>
+      <input id="lw-venue-search" type="search" placeholder="Search venue names…" autocomplete="off">
+      <div class="lw-venue-browser-meta">
+        <span id="lw-venue-count"></span>
+        <span>Alphabetical · select any combination</span>
+      </div>
+      <div id="lw-venue-grid" class="lw-venue-grid" role="group" aria-label="All venues"></div>
+      <p id="lw-no-venues" hidden>No venues match that name.</p>
+    </div>
+    <div id="lw-active-filter-bar" class="lw-active-filter-bar" hidden>
+      <span class="lw-filter-label">Selected</span>
+      <div id="lw-active-filters" class="lw-button-row" aria-label="Active filters"></div>
+      <button type="button" id="lw-clear-all" class="lw-text-button">Clear all</button>
+    </div>
+  </section>
+  <ul id="lw-legend" class="lw-legend" aria-label="Categories">
     <li><span class="lw-tag lw-tag--hardware">hardware</span> devices and computer architecture</li>
     <li><span class="lw-tag lw-tag--cluster">cluster</span> fleets and datacenters</li>
     <li><span class="lw-tag lw-tag--workload">workload</span> software and applications</li>
   </ul>
 
-  {%- assign years = papers | group_by: "year" -%}
+  <p id="lw-load-error" class="lw-load-error" role="status" hidden>Search is temporarily unavailable. The latest papers are shown below.</p>
+  <p id="lw-result-count" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+  <div id="lw-papers">
+  {%- assign initial_papers = papers | slice: 0, 50 -%}
+  {%- assign years = initial_papers | group_by: "year" -%}
   {%- for year in years %}
   <section class="lw-year" aria-labelledby="lw-{{ year.name }}">
     <h2 class="lw-year-label" id="lw-{{ year.name }}">{{ year.name }}</h2>
@@ -87,6 +115,20 @@ wide: true
     {%- endfor %}
   </section>
   {%- endfor %}
+  </div>
+  <div id="lw-empty-state" class="lw-empty-state" hidden>
+    <h2>No papers match these filters.</h2>
+    <p>Try a broader search or remove a selection.</p>
+    <button type="button" id="lw-reset-empty" class="lw-button">Clear all filters</button>
+  </div>
+  <div id="lw-more-row" class="lw-more-row" hidden>
+    <button type="button" id="lw-show-more" class="lw-button">Show 50 more papers</button>
+    <span id="lw-shown-count"></span>
+  </div>
+  {%- if papers.size > 50 %}
+  <noscript><p>The 50 most recent papers are shown. Enable JavaScript to search the full collection and show more.</p></noscript>
+  {%- endif %}
+  <script src="{{ '/assets/js/literature.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   {%- else %}
   <p>No papers yet.</p>
   {%- endif %}

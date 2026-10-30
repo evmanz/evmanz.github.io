@@ -1,0 +1,18 @@
+{%- comment -%}
+  Combine yearly conference and monthly journal releases for the page and its
+  static JSON endpoint. `include` shares the resulting `papers` variable.
+{%- endcomment -%}
+{%- assign papers = "" | split: "" -%}
+{%- for venue in site.data.literature -%}
+  {%- for entry in venue[1] -%}
+    {%- assign node = entry[1] -%}
+    {%- if node.papers -%}
+      {%- assign papers = papers | concat: node.papers -%}
+    {%- else -%}
+      {%- for month in node -%}
+        {%- assign papers = papers | concat: month[1].papers -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign papers = papers | sort: "sort_key" | reverse -%}

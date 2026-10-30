@@ -1,4 +1,4 @@
-// Literature Watch (/literature/), rendered from _data/papers.json.
+// Literature Watch (/literature/), rendered from _data/literature/.
 // Ledger layout: venue and category labels on the left, paper on the right.
 // Greys only; every text colour is at least 4.5:1 on white.
 
@@ -11,6 +11,8 @@ $lw-side-width: 8.5rem;
 $lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− Abstract"
 
 .lw {
+  [hidden] { display: none !important; }
+
   .lw-intro {
     color: $lw-muted;
     margin-bottom: 1rem;
@@ -32,6 +34,153 @@ $lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− A
       align-items: baseline;
       gap: .5rem;
     }
+  }
+
+  .lw-filters {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid $light-gray-color;
+  }
+
+  input[type="search"] {
+    min-width: 0;
+    margin: 0;
+    padding: .65rem .75rem;
+    border: 1px solid $lw-outline;
+    border-radius: 3px;
+    box-shadow: none;
+    color: $lw-ink;
+    background: $white-color;
+    font-size: $content-font-size;
+
+    &::placeholder { color: $lw-muted; opacity: 1; }
+  }
+
+  .lw-button,
+  .lw-text-button,
+  .lw-paper-filter {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .lw-button {
+    color: $lw-ink;
+    background: $white-color;
+    border: 1px solid $lw-outline;
+    border-radius: 3px;
+    padding: .3rem .65rem;
+    font-size: .75rem;
+    line-height: 1.6;
+
+    &:hover { background: #f4f4f4; border-color: $lw-ink; }
+    &[aria-pressed="true"] { color: $white-color; background: $lw-ink; border-color: $lw-ink; }
+    &:disabled { cursor: default; color: $lw-muted; background: $white-color; border-color: $lw-line; }
+  }
+
+  .lw-text-button {
+    color: $lw-ink;
+    background: none;
+    border: 0;
+    padding: .2rem 0;
+    font-size: .75rem;
+    line-height: 1.6;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+  }
+
+  button:focus-visible,
+  input:focus-visible { outline: 2px solid $lw-ink; outline-offset: 3px; }
+
+  .lw-search-row {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    margin-bottom: 1.25rem;
+
+    button { flex-shrink: 0; }
+  }
+
+  .lw-filter-row {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: .75rem;
+    margin: .65rem 0;
+  }
+
+  .lw-filter-label { font-size: .75rem; color: $lw-muted; }
+
+  .lw-button-row,
+  .lw-venue-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .45rem;
+    min-width: 0;
+  }
+
+  .lw-venue-controls { gap: .45rem .9rem; }
+  .lw-filter-count { margin-left: .5rem; font-variant-numeric: tabular-nums; }
+
+  .lw-venue-browser {
+    margin: 1.1rem 0 .9rem 6.25rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid $lw-line;
+    border-bottom: 1px solid $lw-line;
+
+    label { font-size: .75rem; margin-bottom: .4rem; }
+    input { font-size: $metadata-font-size; }
+  }
+
+  .lw-venue-browser-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .4rem .9rem;
+    font-size: .6875rem;
+    color: $lw-muted;
+    margin: .75rem 0;
+  }
+
+  .lw-venue-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .45rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .lw-active-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .65rem .75rem;
+    margin-top: 1rem;
+
+    .lw-button-row { flex: 1; }
+    .lw-button { background: #f4f4f4; border-color: $light-gray-color; overflow-wrap: anywhere; text-align: left; }
+  }
+
+  #lw-papers { margin-top: 1.75rem; }
+  #lw-papers > .lw-year:first-child { margin-top: 0; }
+  .lw-load-error { color: $lw-muted; }
+  .lw-empty-state { padding: 2rem 0; }
+  .lw-empty-state h2 { font-size: $content-subheading-size; font-weight: 400; }
+
+  .lw-more-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    margin: 1.75rem 0;
+    font-size: .75rem;
+    color: $lw-muted;
   }
 
   .lw-year { margin-top: 2.5rem; }
@@ -69,6 +218,18 @@ $lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− A
     font-weight: 700;
     letter-spacing: .04em;
   }
+
+  .lw-venue.lw-paper-filter {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    font-size: inherit;
+    text-align: left;
+  }
+
+  .lw-paper-filter:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .lw-tags li { line-height: 1.5; }
 
   .lw-tags {
     display: flex;
@@ -162,7 +323,18 @@ $lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− A
   }
 
   // Phones: one column; venue and labels in a row above the title.
+  @media (max-width: 680px) {
+    .lw-venue-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lw-venue-browser { margin-left: 0; }
+  }
+
   @media (max-width: 600px) {
+    .lw-filter-row { grid-template-columns: minmax(0, 1fr); gap: .3rem; margin-top: 1rem; }
+    .lw-venue-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lw-search-row { flex-wrap: wrap; }
+    #lw-search::placeholder { font-size: clamp(12px, 3.6vw, 15px); }
+    .lw-active-filter-bar .lw-button-row { flex-basis: 100%; order: 1; }
+
     .lw-item {
       grid-template-columns: minmax(0, 1fr);
       row-gap: .4rem;
@@ -174,5 +346,18 @@ $lw-toggle-width: 7rem;     // room reserved at the end of the byline for "− A
       flex-wrap: wrap;
       align-items: center;
     }
+
+    .lw-authors { padding-right: 0; }
+    .lw-abstract { margin-top: .25rem; }
+    .lw-abstract summary { position: static; }
+  }
+
+  @media (pointer: coarse) {
+    .lw-button,
+    .lw-text-button,
+    .lw-paper-filter { min-height: 44px; }
+    input[type="search"] { font-size: 1rem; }
+    .lw-authors { padding-right: 0; }
+    .lw-abstract summary { position: static; min-height: 44px; padding: .5rem 0; }
   }
 }

@@ -1,0 +1,50 @@
+{
+  "method": "Fresh Chromium contexts; browser cache disabled; median cold ready time includes next paint after DOMContentLoaded. Action timings include the next paint. Search timings include 120ms debounce. Local static HTTP serves data uncompressed.",
+  "profiles": [
+    {
+      "name": "Local desktop",
+      "cold_load_runs": 5,
+      "cold_ready_median_ms": 159.3,
+      "cold_ready_range_ms": [
+        154.4,
+        171.9
+      ],
+      "category_update_median_ms": 31.1,
+      "year_update_median_ms": 33.3,
+      "venue_update_median_ms": 32.6,
+      "search_update_median_ms_including_debounce": 182.2
+    },
+    {
+      "name": "4x CPU slowdown",
+      "cold_load_runs": 5,
+      "cold_ready_median_ms": 372.9,
+      "cold_ready_range_ms": [
+        366.3,
+        378.4
+      ],
+      "category_update_median_ms": 37.4,
+      "year_update_median_ms": 29.8,
+      "venue_update_median_ms": 32.6,
+      "search_update_median_ms_including_debounce": 230.4
+    },
+    {
+      "name": "4x CPU + 10 Mbps / 80ms latency",
+      "cold_load_runs": 1,
+      "cold_ready_median_ms": 18355.1,
+      "cold_ready_range_ms": [
+        18355.1,
+        18355.1
+      ],
+      "category_update_median_ms": 37.8,
+      "year_update_median_ms": 28.8,
+      "venue_update_median_ms": 27.9,
+      "search_update_median_ms_including_debounce": 228.3
+    }
+  ],
+  "data_bytes": 21814687,
+  "initial_dom_elements": 890,
+  "data_records": 10000,
+  "sample_mean_abstract_characters": 1852,
+  "real_mean_abstract_characters": 1742,
+  "functional_checks": "PASS: 10,000 records, 50 initial results, pagination, full-dataset search for record 10,000, abstracts, compound AND/OR filtering, URL restoration, venue browser, 320px layout, real-feed mode; no JavaScript errors."
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Literature Watch · Local prototype</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="papers.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="frame header-inner">
+      <a class="logo" href="https://evmanz.github.io/">Evgeny <strong>Manzhosov</strong></a>
+      <nav aria-label="Main navigation">
+        <a href="https://evmanz.github.io/about/">About me</a>
+        <a href="./" aria-current="page">Literature Watch</a>
+        <a href="https://evmanz.github.io/assets/cv_e.manzhosov.pdf">CV</a>
+      </nav>
+    </div>
+  </header>
+  <main class="frame">
+    <div class="prototype-bar">
+      <span class="eyebrow">Local prototype</span>
+      <div class="dataset-switch" role="group" aria-label="Prototype dataset">
+        <button type="button" data-dataset="real" aria-pressed="false">Current feed</button>
+        <button type="button" data-dataset="sample" aria-pressed="true">10,000-paper demo</button>
+      </div>
+    </div>
+    <h1>Literature Watch</h1>
+    <p class="intro">Recent papers by other researchers on computing reliability, selected automatically from their abstracts. Inclusion is not an endorsement.</p>
+    <p id="dataset-note" class="dataset-note"></p>
+
+    <section class="filters" aria-label="Filter papers">
+      <div class="search-row">
+        <input id="paper-search" type="search" aria-label="Search papers by title, author, or abstract" placeholder="Search papers by title, author, abstract…" autocomplete="off">
+        <button type="button" id="clear-search" hidden>Clear search</button>
+      </div>
+      <div class="filter-row">
+        <span id="category-label" class="filter-label">Category</span>
+        <div id="category-filters" class="button-row" role="group" aria-labelledby="category-label"></div>
+      </div>
+      <div class="filter-row">
+        <span id="year-label" class="filter-label">Year</span>
+        <div id="year-filters" class="button-row" role="group" aria-labelledby="year-label"></div>
+      </div>
+      <div class="filter-row venue-row">
+        <span id="venue-label" class="filter-label">Venue</span>
+        <div class="venue-controls">
+          <div id="venue-filters" class="button-row" role="group" aria-labelledby="venue-label"></div>
+          <button id="browse-venues" class="text-button" type="button" aria-expanded="false" aria-controls="venue-browser">Browse all venues <span aria-hidden="true">+</span></button>
+        </div>
+      </div>
+      <div id="venue-browser" class="venue-browser" hidden>
+        <label class="search-label" for="venue-search">Find a venue</label>
+        <input id="venue-search" type="search" placeholder="Search venue names…" autocomplete="off">
+        <div class="venue-browser-meta"><span id="venue-count"></span><span>Alphabetical · select any combination</span></div>
+        <div id="venue-grid" class="venue-grid" role="group" aria-label="All venues"></div>
+        <p id="no-venues" class="muted" hidden>No venues match that name.</p>
+      </div>
+      <div id="active-filter-bar" class="active-filter-bar" hidden>
+        <span class="filter-label">Selected</span>
+        <div id="active-filters" class="button-row" aria-label="Active filters"></div>
+        <button type="button" id="clear-all" class="text-button">Clear all</button>
+      </div>
+    </section>
+
+    <p id="result-count" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+    <div id="papers"></div>
+    <div id="empty-state" class="empty-state" hidden>
+      <h2>No papers match these filters.</h2>
+      <p>Try a broader search or remove a selection.</p>
+      <button type="button" id="reset-empty">Clear all filters</button>
+    </div>
+    <div class="more-row" id="more-row" hidden>
+      <button type="button" id="show-more">Show 50 more papers</button>
+      <span class="muted" id="shown-count"></span>
+    </div>
+    <noscript><p>This local filter prototype requires JavaScript.</p></noscript>
+  </main>
+  <footer class="frame site-footer">Literature Watch · Filter prototype</footer>
+</body>
+</html>
