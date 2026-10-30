@@ -1,0 +1,277 @@
+{
+  "venue": "ISCA",
+  "release": "2026",
+  "label": "ISCA 2026",
+  "papers": [
+    {
+      "id": "p000734",
+      "title": "From Lab to Fleet: Building and Deploying a Practical Rowhammer Defense in Cloud SoCs",
+      "authors": [
+        "Stefan Saroiu",
+        "Sujay Yadalam",
+        "Alec Wolman",
+        "Will Remaklus",
+        "Daniel Berger",
+        "Isaac H. Luna",
+        "Ishwar Agarwal",
+        "Jacob R. Lorch"
+      ],
+      "first_author_family": "Saroiu",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000734",
+      "publication": "published",
+      "categories": [
+        "cluster",
+        "hardware"
+      ],
+      "abstract": "Rowhammer attacks pose a significant threat to modern DRAM, with potentially serious security consequences for a cloud vendor, such as data corruption or infrastructure outages. Existing defenses fail to satisfy key industry requirements, including minimal overhead in the absence of attacks, predictable performance when under attack, system liveness, low hardware cost, adaptability to diverse hardware configurations, and tunable security guarantees. This paper introduces Sigries, a hybrid Rowhammer defense implemented by Microsoft in the Azure Cobalt 200 SoC, combining the Misra-Gries algorithm for efficient row tracking with a fallback row-sampling mode for robustness under all attack scenarios. Sigries's design meets all our performance goals and offers configurable security guarantees allowing a cloud vendor to assess the security risks to its fleet. Our trace-driven evaluation shows that Sigries maintains minimal DRAM bandwidth overhead while keeping performance overhead consistently low. This work represents the first detailed description of a fully implemented, industry-grade Rowhammer defense and provides insights to inform research prototypes about real-world requirements.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00062"
+    },
+    {
+      "id": "p000716",
+      "title": "Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference",
+      "authors": [
+        "Junwei Cui",
+        "Le Qin",
+        "Weilin Cai",
+        "Jiayi Huang"
+      ],
+      "first_author_family": "Cui",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000716",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "The accelerating scale of large language models (LLMs) has driven an unprecedented increase in computational and memory demands that outpace the capability of conventional systems. Wafer-scale integration, with its dense, low-latency mesh interconnects across tightly packed arrays of compute and memory dies, emerges as a promising paradigm for massive system scaling. However, existing LLM deployment strategies, largely optimized for switch-based distributed GPU systems, are mismatched with the asymmetric mesh topology and bandwidth heterogeneity across tiers of wafer-scale systems. The inherent complexity of wafer-scale systems also makes them highly susceptible to node and link failures arising from manufacturing defects or runtime degradation, making fault-tolerant communication essential for robust LLM inference. To address these challenges, we introduce BusyBarn, a comprehensive framework that provides mapping and communication optimizations for efficient, fault-tolerant LLM inference on wafer-scale systems. BusyBarn introduces two key techniques: a hierarchical mapping algorithm that exploits the structural symmetry between Transformer blocks and die arrays to jointly optimize inter-die and intra-die workload deployment; and the Balanced Allocation with Load and Distance awareness (BALD) communication algorithm, which manages irregular traffic and balances load via link allocation for point-to-point and multicast collective primitives. Crucially, BusyBarn seamlessly integrates fault tolerance into these optimizations. Evaluation demonstrates that BusyBarn achieves up to ${2. 5 5} \\times$ speedup in typical communication patterns and ${1. 0 8}-{2. 1 4} \\times$ end-to-end speedup for LLM inference compared to state-of-the-art methods.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00076"
+    },
+    {
+      "id": "p000707",
+      "title": "HARTBREAKER: Deterministic Fuzzing of Multi-Hart RISC-V CPUs with Non-Deterministic Programs",
+      "authors": [
+        "Quentin Bordier",
+        "Tobias Kovats",
+        "Flavien Solt",
+        "Kaveh Razavi"
+      ],
+      "first_author_family": "Bordier",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000707",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Hardware bugs threaten the correctness and security of modern CPUs. Relying on a deterministic correct baseline, pre-silicon fuzzing has proven to be an effective strategy for discovering deviations from correct behavior (i.e., bugs) in single-core CPUs. Modern CPUs, however, often feature multiple cores with complex interconnects that implement communication channels such as inter-processor interrupts or shared memory. Is it possible to effectively fuzz multicore CPUs despite their inherent non-deterministic operations? We make a key observation that multi-hart interactions may result in non-deterministic data flows, control flows, or combinations thereof. An efficient fuzzing campaign needs to manage this non-determinism without limiting the exploration of the possible state space that may lead to bugs. Our new multi-hart RISC-V fuzzer, called HartBreaker, achieves this with a judicious use of three determinism anchors: control- and data-flow anchors enable non-deterministic control- and dataflow interactions between harts while ensuring a correct execution of multi-hart test programs, achieving high testing throughput and simplified bug detection. Synchronization anchors bound the non-deterministic window across harts, enabling HartBreaker to detect bugs that do not contaminate the control flow. We test HartBreaker on five multi-hart designs, namely Rocket, BOOM, Toooba, NaxRiscv and XiangShan. HartBreaker discovers five new concurrency bugs in these designs.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00155"
+    },
+    {
+      "id": "p000702",
+      "title": "PuDghost: Experimental Analysis of Computation Result Corruption in Processing-Using-Dram Operations on Real Dram Chips and Implications for Future Systems",
+      "authors": [
+        "Daichi Tokuda",
+        "İsmail Emir Yüksel",
+        "Tatsuya Kubo",
+        "Ataberk Olgun",
+        "Haocong Luo",
+        "Nisa Bostanci",
+        "Jikun Wang",
+        "A. Giray Yağlıkçı",
+        "Shinya Takamaeda-Yamazaki",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Tokuda",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000702",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Processing-using-DRAM (PuD) is a promising computation paradigm to alleviate the frequent data movement between main memory and processing units. The PuD paradigm provides a substrate for highly parallel computation by using each DRAM column as a computation engine via simultaneous multiple-row activation (SiMRA). Unfortunately, DRAM density scaling might hinder PuD's benefits. This is because denser cell arrays bring rows and columns closer, making even regular DRAM operations susceptible to noise and interference from neighboring cells. PuD repurposes DRAM from a storage device into a parallel computing substrate, yet no prior work investigates whether interference from rows or columns that are not intended to participate in the computation can compromise PuD robustness. In this work, we reveal an interference phenomenon affecting PuD computations, which we call PuDGhost, where a PuD operation in a given column produces erroneous results due to interference from 1) data stored in non-activated DRAM rows and 2) data stored in other columns that perform computations concurrently under the same SiMRA operation. PuDGhost violates the ideal picture of PuD computations, where each column's computation should depend solely on its own operand data. Thus, PuDGhost threatens the robustness of future PuD systems. We present the first extensive characterization of PuDGhost using 96 real DDR4 DRAM chips from 12 modules, systematically quantifying the impact of these two interference sources under various conditions (i.e., data patterns, temperature, and spatial properties). Among our 15 new empirical observations, we highlight two major results: 1) data in physically adjacent non-activated rows affects SiMRA outputs by up to 10% for random inputs, and 2) data in columns that perform computations concurrently affects SiMRA outputs by up to 48% for random inputs. Guided by these findings, we propose countermeasures against PuDGhost across multiple layers of the PuD computing stack (i.e., microarchitectural, architectural, and system levels). Specifically, we propose and evaluate on real DDR4 DRAM chips: 1) robust column screening that reduces the risk of mistakenly using unreliable columns in the presence of PuDGhost, and 2) a compute row layout that mitigates PuDGhost via dedicated rows between compute rows. Our solutions greatly improve PuD computation accuracy. We hope that our findings provide a foundation for developing solutions to enable future PuD systems that are robust.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00040"
+    },
+    {
+      "id": "p000699",
+      "title": "Prometheus: Toward Resilient Data Centers through Optimized Cooling Infrastructure",
+      "authors": [
+        "Sourav Patel",
+        "Pratyush Kumar",
+        "Youzhi Liang",
+        "Thomas Kowalski",
+        "Nick Care",
+        "Wenjie Dong",
+        "Greg Imwalle",
+        "Rita Lu",
+        "Jeremy Rice",
+        "Nick Saddock",
+        "Rick Vengalath",
+        "Urs Hölzle",
+        "Benjamin C. Lee",
+        "Parthasarathy Ranganathan"
+      ],
+      "first_author_family": "Patel",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000699",
+      "publication": "published",
+      "categories": [
+        "cluster"
+      ],
+      "abstract": "Data center design assumptions are increasingly at risk from severe weather events. The framework Prometheus forecasts future temperatures and guides infrastructure design on multiple timescales. Using machine learning on historical and simulated climate data, Prometheus indicates that data centers must increase cooling capacity by 11% on average and up to 48% at the sites most challenged. 30% of data centers lack sufficient load flexibility and 12% already face a high probability of exceeding their design temperatures and require upgrades.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00083"
+    },
+    {
+      "id": "p000663",
+      "title": "DejaVu: Why You Should Write to Your DRAM Rows Twice, Carefully",
+      "authors": [
+        "Haocong Luo",
+        "İsmail Emir Yüksel",
+        "Ataberk Olgun",
+        "Nisa Bostanci",
+        "Orhun Ecemiş",
+        "Abdullah Giray Yaglikci",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Luo",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000663",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "We provide the first experimental demonstration of DejaVu, a phenomenon where the data previously written to DRAM cells affects DRAM's vulnerability to read disturbance. Our experimental characterization using 112 commercial-off-the-shelf DDR4 DRAM chips from all three major manufacturers shows that, compared to the baseline where we initialize the victim row by writing to it only once, 1) initializing the victim row by overwriting the victim row with the opposite data (compared to what was previously written) reduces $A C_{\\min}$ (the minimum aggressor row activation count to induce at least one bitflip; a lower $A C_{\\min}$ means higher vulnerability to read disturbance), and 2) initializing the victim row by writing the same data twice increases $A C_{\\min}$. We provide two hypotheses to explain DejaVu. First, we hypothesize that overwriting the victim row with the opposite data values causes the under-restoration of charge in the DRAM cells. Second, we hypothesize that the process of overwriting the victim row changes the charge trap states in the active region, affecting the read-disturbance-induced cell leakage current. We conduct controlled experimental characterization to provide insight into these two hypotheses. To further investigate DejaVu's potential impact on the current passing capability of the DRAM cell access transistors, we characterize the reliability of Processing-Using-DRAM (PUD) operations with DRAM rows initialized with DejaVu patterns. Our experimental characterization of 32-row MAJ-3 operation shows that by overwriting the DRAM rows used in the operation, the number of bitlines that fail to reliably perform MAJ-3 reduces by 32.7% on average compared to the baseline where the rows are written only once. We hypothesize that DejaVu's effects make the distribution of the current passing capabilities of the access transistors of DRAM cells more uniform compared to the baseline. Based on our observations, we describe two major implications of DejaVu. We provide an example of how DRAM testing and characterization methodologies should take DejaVu into consideration to 1) accurately characterize the read disturbance vulnerability of DRAM rows under fixed data patterns, and 2) rigorously study the effect of different data patterns on read disturbance by avoiding unintended interference from DejaVu. We also evaluate the additional performance overhead of read disturbance mitigation techniques when their read disturbance thresholds need to be lowered to be secure against DejaVu and show that they induce higher performance overheads (e.g., 6.3% performance overhead when reducing the read disturbance threshold by 20% as a guardband to mitigate DejaVu).",
+      "url": "https://doi.org/10.1109/isca66397.2026.00117"
+    },
+    {
+      "id": "p000650",
+      "title": "ECC Enabled Reliable and Performant Processing-in-Memory",
+      "authors": [
+        "Jeageun Jung",
+        "Margaret Lee",
+        "Mattan Erez"
+      ],
+      "first_author_family": "Jung",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000650",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "We introduce a Processing-in-Memory (PIM) architecture with tailored error checking and correcting (ECC) mechanisms to address reliability challenges from scaling errors and physical faults. PIMs can significantly improve computing efficiency by integrating computing devices directly within memory chips, but their reliability has not been explored in detail. It is important to ensure reliability against variable retention time (VRT) scaling errors and multi-bit errors in modern DRAM. Our proposed reliable bank-PIM architecture not only accurately detects multi-bit errors and corrects at the rank-level but also avoids the high performance impact of repetitive rank-level corrections. We develop a Codeword Flip method that is specifically designed to mask errors caused by VRT weak cells. This strategy effectively reduces the risk of silent data corruption (SDC) and has a negligible performance impact. With an odd-even bank pipelining approach, which achieves PIM unit utilization of 90%, our ECC mechanism could decrease the likelihood of SDC to 400× lower than traditional bank-PIM configuration over a five-year operational period. Moreover, it shows the potential 4× performance enhancement over rankPIM in certain micro-benchmarks and end-to-end performance improvements in LLM applications.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00025"
+    },
+    {
+      "id": "p000635",
+      "title": "RangeGuard: Efficient, Bounded Approximate Error Correction for Reliable DNNs",
+      "authors": [
+        "Hanum Ko",
+        "Sangheum Yeon",
+        "Jong Hwan Ko",
+        "Jungrae Kim"
+      ],
+      "first_author_family": "Ko",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000635",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "As DRAM scales in density and adopts 3D integration, raw fault rates increase and multi-bit errors are no longer rare. Such errors can severely impact Deep Neural Networks (DNNs): although DNNs tolerate small numerical perturbations, random bit flips can create extreme outliers that propagate and sharply degrade accuracy. Large Language Models (LLMs) are particularly vulnerable because attention, residual, and normalization layers can amplify and preserve a single corrupted activation across many layers, destabilizing inference. This paper introduces RangeGuard, a metadata-centric errorcorrecting framework that provides strong reliability and high efficiency based on bounded approximate correction. Instead of protecting raw bits, RangeGuard encodes compact Range Identifiers (RIDs) that capture the numerical range of each value. These compact metadata enable efficient use of limited redundancy and concentrate protection on range changes-which indicate harmful semantic deviations-while ignoring benign intra-range variations. Upon detecting a range change, RangeGuard restores the correct range and substitutes a representative value, ensuring that error magnitudes are bounded within the range. Based on RIDs, RangeGuard can tolerate 64+ bits of error using only 16 bits of parity available in GPU memories without a noticeable accuracy loss. By introducing semantic range protection, RangeGuard enables reliable DNN execution even under frequent memory errors and tight redundancy budgets.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00097"
+    },
+    {
+      "id": "p000632",
+      "title": "PRowhammer: Propagating Bit-Flips from CPU to GPU",
+      "authors": [
+        "Mrityunjay Shukla",
+        "Shubham Roy",
+        "Sayandeep Saha",
+        "Biswabandan Panda"
+      ],
+      "first_author_family": "Shukla",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000632",
+      "publication": "published",
+      "categories": [
+        "hardware",
+        "workload"
+      ],
+      "abstract": "The Rowhammer attack is an exploit that induces bit-flips in DRAMs. In the last decade, Rowhammer has been demonstrated on DDRs and LPDDRs used by CPUs, and recently it has been demonstrated on GDDRs used by GPUs. In a heterogeneous system with CPUs and GPUs, GPUs are dependent on the hDRAM (host's DRAM, i.e., CPU's DRAM) as all the data and the code executed on the GPU are first loaded into the hDRAM. We exploit the dependency of GPUs on hDRAM to develop a novel attack called Propagated Rowhammer (PRowhammer), which utilizes CPU-based Rowhammer bit-flips in hDRAM to corrupt GPU code before execution, thereby propagating the bit-flips to the GPU. We exploit two key observations that are, OS page deduplication of GPU shared libraries in hDRAM and inducing bit-flips transform GPU instructions into semantically altered yet valid instructions. Despite challenges such as the massive size of GPU shared libraries (hundreds of megabytes), the closed-source nature of the code, and the use of a proprietary compression algorithm for the SASS (GPU assembly) code, we develop automated techniques to identify exploitable bit-flip locations in hDRAM. We demonstrate PRowhammer on hDRAMs, such as DDRs (DDR3 and DDR4), with NVIDIA's discrete GPUs that utilize the CUDA software stack. We demonstrate the effectiveness of PRowhammer against state-of-the-art machine learning (ML) models in realistic black-box settings, where the adversary operates on a CPU and lacks access to the ML model's weights and architecture. With PRowhammer, a single bit-flip in the well-known shared library cuBLASLt degrades image classification accuracy across 16 test cases (ResNet-18, ResNet-34, ResNet-50 and VGG-16 on MNIST, FMNIST, CIFAR-10, and ImageNet) to random guessing, and in the worst-case scenario, it drops to 0%. We also demonstrate the effectiveness of PRowhammer on Large Language Models (LLMs) such as Llama-2, Mistral, and Falcon, where a single bit-flip in the GGML library reduces the generation quality, resulting in a BERTScore of 25%, which produces gibberish output. Overall, PRowhammer exposes an entirely new class of GPU vulnerabilities stemming from CPU-GPU architectural coupling, demanding holistic security approaches for heterogeneous computing systems.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00116"
+    },
+    {
+      "id": "p000614",
+      "title": "HBM-CASO: A Coordinated Approach to HBM System-Level and On-Die ECC",
+      "authors": [
+        "Ruizhi Zhu",
+        "Yanan Guo",
+        "Huize Li",
+        "Weidong Cao",
+        "Qian Lou",
+        "Xin Xin"
+      ],
+      "first_author_family": "Zhu",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000614",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "HBM (High-Bandwidth Memory) has progressively strengthened its reliability by employing more advanced ECC (Error Correction Code) techniques, such as Reed-Solomon (RS) codes, to meet the increasing reliability challenges raised from continued technology scaling. Over time, the protection paradigm has shifted from a system-centric approach (i.e., system ECC), where the processor primarily manages error correction, to a memory-centric approach (i.e., on-die ECC), where HBM handles errors independently. Although this shift generally reduces the ECC burden on the processor side, it constrains the flexibility to implement stronger protection schemes, particularly when the processor is capable of supporting more advanced ECC. To address this problem, we propose HBM-CASO, a new protection mode designed to accommodate advanced system ECC. It strategically reorganizes the on-die ECC resources to generate a stronger on-die codeword as a supplement to the system ECC. Furthermore, due to limited on-die computing resources, HBM cannot directly verify the advanced system ECC. HBM-CASO therefore introduces a delayed verification strategy, which accumulates on-die parity across a batch of writes, rather than verifying each write individually, and validates the entire batch as a whole. Our extensive evaluation results demonstrate that HBM-CASO has effectively enhanced error correction capability, allowing the system to correct a broader range of error patterns with minimal performance and bandwidth overhead.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00026"
+    },
+    {
+      "id": "p000586",
+      "title": "Loaded Dice: Solving the Non-Selection Problem for Scalable Probabilistic RowHammer Defense",
+      "authors": [
+        "Jeonghyun Woo",
+        "Junsu Kim",
+        "Aamer Jaleel",
+        "Prashant J. Nair"
+      ],
+      "first_author_family": "Woo",
+      "venue": "ISCA",
+      "venue_label": "ISCA 2026",
+      "year": 2026,
+      "date": "2026-06",
+      "sort_key": "2026-06-00-p000586",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "DRAM scaling has exacerbated the RowHammer vulnerability. To counter this, JEDEC recently introduced Per Row Activation Counting (PRAC) with the Alert Back-Off protocol as an optional DDR5 feature. While promising, PRAC requires per-row counter cells that incur area overhead, and updating them on every activation lengthens DRAM timing parameters, degrading performance. Probabilistic mitigations such as MINT offer a lower-cost alternative by randomly selecting and mitigating rows within periodic mitigation windows. MINT is effective at higher thresholds $(\\geq 1000)$, but at lower thresholds, it must raise its mitigation rate to overcome the nonselection problem, where heavily hammered rows can repeatedly escape sampling. This fixed-rate scaling reduces effective memory bandwidth even when no attack is present. To overcome this limitation, we propose PrISM, an intersection-based probabilistic mitigation that correlates sampled rows across windows using a Sampled History Queue (SHQ). PrISM samples a few activation slots per window, stores sampledbut-unmitigated rows in the SHQ, and requests an additional mitigation through the existing Alert Back-Off protocol when a sampled row reappears in this history. This allows PrISM to increase mitigation only when persistent row activity is observed, without globally increasing the fixed mitigation rate. At the threshold of 500, PrISM incurs a negligible 0.2% average slowdown compared to 14% for PRAC, with no DRAM array changes or per-row counters and only 625B of SRAM per bank, one to two orders of magnitude less than prior secure counter-based in-DRAM defenses. Compared to MINT, PrISM provides better scalability at low thresholds, reducing average slowdown from 10.7% to 1.5% at a threshold of 250, a 7.1× reduction. PrISM is open-sourced at https://github.com/STAR-Laboratory/prism.",
+      "url": "https://doi.org/10.1109/isca66397.2026.00115"
+    }
+  ]
+}
