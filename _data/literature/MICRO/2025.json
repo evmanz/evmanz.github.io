@@ -1,0 +1,152 @@
+{
+  "venue": "MICRO",
+  "release": "2025",
+  "label": "MICRO 2025",
+  "papers": [
+    {
+      "id": "p001547",
+      "title": "Optimizing All-to-All Collective Communication with Fault Tolerance on Torus Networks",
+      "authors": [
+        "Le Qin",
+        "Junwei Cui",
+        "Weilin Cai",
+        "Meng Niu",
+        "Yan Yang",
+        "Jiayi Huang"
+      ],
+      "first_author_family": "Qin",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001547",
+      "publication": "published",
+      "categories": [
+        "cluster"
+      ],
+      "abstract": "Large-scale distributed processing is extensively employed for large model inference and training, such as Deep Learning Recommendation Models (DLRMs) and Mixture-of-Experts (MoE) models. However, the All-to-All collective, with its complex point-to-point communication patterns and blocking nature, has become a major performance bottleneck in distributed DLRM and MoE accelerations. Moreover, the prolonged distributed processing often encounters link failures, which severely impact system efficiency, reliability, and cost. Unlike switched-based topologies, which support any-to-any connections like Clos networks, All-to-All communication on torus networks can interfere with one another by sharing routing paths, creating critical performance limitations. To address these challenges, we propose single-dimensional algorithm and multi-dimensional scheduling for all-to-all optimizations with fault tolerance on torus. In fault-free scenarios, we propose HalfRing algorithm and DimRotation scheduling. HalfRing utilizes bidirectional links to construct shortest communication path on a ring, while DimRotation allocates communication sequences of each data chunk across multiple dimensions to achieve full bandwidth utilization. In faulty scenarios, we introduce FoldedRing algorithm and MATE scheduling. FoldedRing facilitates fault-tolerant communication on a ring, while MATE accelerates communication on the faulty ring by leveraging available links from other dimensions. Our results show that, compared to the ring algorithm with pipeline scheduling, HalfRing, DimRotation and their combination can achieve average performance speedups of 1.56 × , 1.45 × , and 2.28 × , respectively. For All-to-All with a single link failure, MATE can achieve a 1.37 × speedup compared to ring-based fault-free conditions. When compared with state-of-the-art routing methods in TPUv4 clusters, our approach achieves 1.57 × and 1.61 × speedups for fault-free and fault-tolerant scenarios, respectively.",
+      "url": "https://doi.org/10.1145/3725843.3756057"
+    },
+    {
+      "id": "p001532",
+      "title": "ρHammer: Reviving RowHammer Attacks on New Architectures via Prefetching",
+      "authors": [
+        "Weijie Chen",
+        "Shan Tang",
+        "Yulin Tang",
+        "Xiapu Luo",
+        "Yinqian Zhang",
+        "Weizhong Qiang"
+      ],
+      "first_author_family": "Chen",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001532",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Rowhammer is a critical vulnerability in dynamic random access memory (DRAM) that continues to pose a significant threat to various systems. However, we find that conventional load-based attacks are becoming highly ineffective on the most recent architectures such as Intel Alder and Raptor Lake. In this paper, we present $ρ$Hammer, a new Rowhammer framework that systematically overcomes three core challenges impeding attacks on these new architectures. First, we design an efficient and generic DRAM address mapping reverse-engineering method that uses selective pairwise measurements and structured deduction, enabling recovery of complex mappings within seconds on the latest memory controllers. Second, to break through the activation rate bottleneck of load-based hammering, we introduce a novel prefetch-based hammering paradigm that leverages the asynchronous nature of x86 prefetch instructions and is further enhanced by multi-bank parallelism to maximize throughput. Third, recognizing that speculative execution causes more severe disorder issues for prefetching, which cannot be simply mitigated by memory barriers, we develop a counter-speculation hammering technique using control-flow obfuscation and optimized NOP-based pseudo-barriers to maintain prefetch order with minimal overhead. Evaluations across four latest Intel architectures demonstrate $ρ$Hammer's breakthrough effectiveness: it induces up to 200K+ additional bit flips within 2-hour attack pattern fuzzing processes and has a 112x higher flip rate than the load-based hammering baselines on Comet and Rocket Lake. Also, we are the first to revive Rowhammer attacks on the latest Raptor Lake architecture, where baselines completely fail, achieving stable flip rates of 2,291/min and fast end-to-end exploitation.",
+      "url": "https://doi.org/10.1145/3725843.3756042"
+    },
+    {
+      "id": "p001522",
+      "title": "DEAR: Improving Performance and Lifetime of SSDs Using Dynamic Error-Aware Refresh",
+      "authors": [
+        "Jaeyong Lee",
+        "Beomjun Kim",
+        "Myoungjun Chun",
+        "Myungsuk Kim",
+        "Jihong Kim"
+      ],
+      "first_author_family": "Lee",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001522",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Although NAND flash memory has achieved significant capacity improvements through advanced 3D stacking and multi-level cell technologies, these advances have intensified the read-disturb problem. Modern SSDs require efficient solutions to minimize the overhead of managing read-disturb errors. In this paper, we propose DEAR (Dynamic Error-Aware Refresh), a novel approach that dynamically monitors flash memory error status at runtime. Unlike conventional methods that trigger read refresh (RR) procedures based on fixed read-count thresholds per block, DEAR selectively invokes RR at the WL granularity, based on actual error conditions. DEAR leverages an accurate and efficient runtime error estimator (SEE), significantly reducing unnecessary RR invocations. System-level evaluations with ten real-world workloads show that DEAR reduces RR invocations by 64.2% on average compared to existing methods, with negligible overhead. Furthermore, DEAR reduces the 99.9th percentile read latency by 44.9% and extends SSD lifetime by 36.7% compared to state-of-the-art techniques.",
+      "url": "https://doi.org/10.1145/3725843.3756134"
+    },
+    {
+      "id": "p001487",
+      "title": "Citadel: Rethinking Memory Allocation to Safeguard Against Inter-Domain Rowhammer Exploits",
+      "authors": [
+        "Anish Saxena",
+        "Walter Wang",
+        "Alexandros Daglis"
+      ],
+      "first_author_family": "Saxena",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001487",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "Rowhammer is a hardware security vulnerability at the heart of every DRAM-based memory system. Despite its discovery a decade ago, comprehensive defenses in current systems remain elusive, while the probability of successful attacks grows with DRAM density. Hardware-based defenses have proven ineffective due to substantial cost, delays in commercial adoption, and repeated circumventions by attackers, while more flexible software-based solutions incur major performance and memory capacity overheads or offer only limited protection. Citadel is a new memory allocator design that prevents Rowhammer-initiated security exploits by addressing the vulnerability’s root cause: physical adjacency of DRAM rows. It introduces flexible security domains and isolates them in physically disjoint memory regions, guaranteeing security by design. On a server system, Citadel supports thousands of security domains at a modest 7.2% average memory overhead and no performance loss, while remaining readily deployable across legacy, contemporary, and future platforms. In contrast, recent domain isolation schemes fail to support many workload scenarios due to excessive overhead and incur 4–6 × higher overhead for supported scenarios.",
+      "url": "https://doi.org/10.1145/3725843.3756098"
+    },
+    {
+      "id": "p001478",
+      "title": "DRAM Fault Classification through Large-Scale Field Monitoring for Robust Memory RAS Management",
+      "authors": [
+        "Hoiju Chung",
+        "Euisang Oh",
+        "Seungmin Baek",
+        "Hyeongshin Yoon",
+        "Jaesung Yoo",
+        "Sanghwan Lee",
+        "Yongjun Lee",
+        "Arhatha Bramhanand",
+        "Brett Dodds",
+        "Yang Zhou",
+        "Nam Sung Kim"
+      ],
+      "first_author_family": "Chung",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001478",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "As DRAM technology scales down, maintaining prior levels of reliability becomes increasingly challenging due to heightened susceptibility to faults. This growing concern underscores the need for effective in-field fault monitoring and management. Addressing this challenge, this work first introduces a refined DRAM fault classification, derived from the correlation between DRAM addresses and their underlying architectural hierarchies of faulty DRAMs. Building on this classification, we propose a comprehensive memory fault management strategy adequate to each DRAM fault. We further formalize and implement a structured remediation framework, enabling fault-specific mitigation. Utilizing this methodology, we conduct a large-scale field study on DDR4 x4 and DDR5 10x4 RDIMMs, uncovering that over 98% of DDR4 x4 RDIMM faults are tightly coupled with intra-bank architectural characteristics. In particular, we identify that early detection and localized management of faults within 2×2 MATs1—encompassing the vast majority of clustered row faults—are crucial to achieving resilient memory subsystems. We also observe intrinsic correlations among faulty Row Addresses (RAs), indicating unavoidable structural address patterns in most DRAMs. Additionally, our method demonstrates strong diagnostic accuracy in detecting unbounded faults2 even in DDR5 10x4 RDIMMs equipped with in-DRAM ECC. The insights gained from this study not only enhance DRAM fault diagnosis and mitigation but also inform the development of RAS features for future memory systems with limited error correction capabilities.",
+      "url": "https://doi.org/10.1145/3725843.3756089"
+    },
+    {
+      "id": "p001431",
+      "title": "ColumnDisturb: Understanding Column-based Read Disturbance in Real DRAM Chips and Implications for Future Systems",
+      "authors": [
+        "Ismail Emir Yuksel",
+        "Ataberk Olgun",
+        "Nisa Bostanci",
+        "Haocong Luo",
+        "Abdullah Giray Yaglikci",
+        "Onur Mutlu"
+      ],
+      "first_author_family": "Yuksel",
+      "venue": "MICRO",
+      "venue_label": "MICRO 2025",
+      "year": 2025,
+      "date": "2025-10-17",
+      "sort_key": "2025-10-17-p001431",
+      "publication": "published",
+      "categories": [
+        "hardware"
+      ],
+      "abstract": "We experimentally demonstrate a new widespread read disturbance phenomenon, ColumnDisturb, in real commodity DRAM chips.By repeatedly opening or keeping a DRAM row (aggressor row) open, we show that it is possible to disturb DRAM cells through a DRAM column (i.e., bitline) and induce bitflips in DRAM cells sharing the same columns as the aggressor row (across multiple DRAM subarrays).With ColumnDisturb, the activation of a single row concurrently disturbs DRAM cells across as many as three DRAM subarrays (e.g., up to 3072 DRAM rows in tested DDR4 DRAM chips) as opposed to RowHammer & RowPress, which affect only a few neighboring rows of the aggressor row in a single subarray.We rigorously and comprehensively characterize ColumnDisturb and its characteristics under various operational conditions (i.e., temperature, data pattern, DRAM timing parameters, average voltage level of the bitline, memory access pattern, and spatial variation) using 216 DDR4 and 4 HBM2 chips from three major DRAM manufacturers.Among our 27 key experimental observations, we highlight two major results and their implications.First, ColumnDisturb affects chips from all three major DRAM manufacturers and worsens as DRAM technology scales down to smaller node sizes (e.g., the minimum time to induce the first Col-umnDisturb bitflip reduces by up to 5.06x and 2.96x on average across all tested modules).We observe that, even in existing DRAM chips, ColumnDisturb induces bitflips within a nominal DDR4 refresh window (e.g., in 63.6 ms) in multiple cells from one module.We predict that, as DRAM technology node size reduces, ColumnDisturb would worsen in future DRAM chips, likely causing many more bitflips in the nominal refresh window.Second, beyond the nominal refresh window, ColumnDisturb induces bitflips in many (up to 198x) more DRAM rows than retention failures.Therefore, Column-Disturb has strong implications for existing retention-aware refresh mechanisms that aim to improve system performance and energy efficiency by leveraging the heterogeneity in DRAM cell retention",
+      "url": "https://doi.org/10.1145/3725843.3756022"
+    }
+  ]
+}
